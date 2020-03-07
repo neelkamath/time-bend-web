@@ -1,9 +1,7 @@
-plugins { id("org.jetbrains.kotlin.js") version "1.3.61" }
+plugins { kotlin("js") version "1.3.70" }
 
-group = "com.neelkamath"
+repositories { jcenter() }
 
-repositories { mavenCentral() }
+kotlin.target.browser {}
 
 dependencies { implementation(kotlin("stdlib-js")) }
-
-kotlin.target.browser { }
