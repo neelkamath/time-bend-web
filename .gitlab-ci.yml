@@ -1,0 +1,3 @@
+test:
+  image: node:12
+  script: npm t

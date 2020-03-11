@@ -1,0 +1,17 @@
+{
+  "include": [
+    "src/ts/**/*"
+  ],
+  "compilerOptions": {
+    "target": "ES2019",
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
+    "esModuleInterop": true
+  }
+}

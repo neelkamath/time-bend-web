@@ -1,5 +1,6 @@
-.DS_Store
-.gradle/
+.cache/
 .idea/
-build/
+dist/
+node_modules/
+.DS_Store
 *.iml
