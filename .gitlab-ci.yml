@@ -1,3 +1,5 @@
 test:
   image: node:12
-  script: npm t
+  script:
+    - npm i
+    - npm t

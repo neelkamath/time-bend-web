@@ -36,10 +36,10 @@ export function DayTime(props: DayTimeProps): ReactElement {
                     border: 'none',
                     color: '#989C9C',
                     fontFamily: 'Roboto, sans-serif',
-                    fontSize: 'large',
+                    fontSize: 'x-large',
                     fontWeight: 'bold',
-                    paddingTop: '0.2em',
-                    outline: 'none'
+                    outline: 'none',
+                    paddingTop: '0.2em'
                 }}
                 type="time"
                 value={timeOfDay}

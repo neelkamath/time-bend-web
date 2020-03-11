@@ -11,7 +11,7 @@ Follow these steps if you're forking the repo to develop the project as your own
 
 ## Installation
 
-1. Install [node.js 12](https://nodejs.org/en/download/).
+1. Install [node.js v12](https://nodejs.org/en/download/).
 1. Clone the repository using one of the following methods.
     - SSH: `git clone git@github.com:neelkamath/time-bend-web.git`
     - HTTPS: `git clone https://github.com/neelkamath/time-bend-web.git`
