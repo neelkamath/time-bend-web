@@ -113,3 +113,8 @@ export function getTasks(): TaskData[] {
     const tasks = localStorage.getItem('tasks');
     return tasks === null ? [] : JSON.parse(tasks);
 }
+
+export function deleteTask(task: TaskData): void {
+    if (!taskExists(task)) throw "Task doesn't exist";
+    saveTasks(getTasks().filter((value: TaskData) => value.created !== task.created));
+}
