@@ -3,7 +3,6 @@
 ## Forking
 
 Follow these steps if you're forking the repo to develop the project as your own instead of just to send back a PR.
- 
 - Set up the CI/CD pipeline.
     1. Create a [GitLab](https://gitlab.com/users/sign_in#register-pane) account.
     1. [Connect](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/github_integration.html) the GitHub repo to a GitLab repo.
@@ -11,7 +10,7 @@ Follow these steps if you're forking the repo to develop the project as your own
 
 ## Installation
 
-1. Install [node.js 12](https://nodejs.org/en/download/).
+1. Install [node.js v12](https://nodejs.org/en/download/).
 1. Clone the repository using one of the following methods.
     - SSH: `git clone git@github.com:neelkamath/time-bend-web.git`
     - HTTPS: `git clone https://github.com/neelkamath/time-bend-web.git`
@@ -40,13 +39,12 @@ npm run build
 ```
 Saves the production build to `dist/`.
 
-### Storage
+### Components
 
-`localStorage` is used to store the following data. Since `localStorage` stores everything as a `string`, data types are listed to explain how to parse it. We use 24 hour clocks.
+We use [rmwc](https://rmwc.io/) for UI components. Use the [CustomButton](src/components/CustomButton.tsx) instead of rmwc's `Button`.
 
-|Key|Explanation|Data type|Example|
-|:---:|:---:|:---:|:---:|
-|`startHour`|Day's start hour|`number`|3|
-|`startMinute`|Day's start minute|`number`|17|
-|`endHour`|Day's end hour|`number`|4|
-|`endMinute`|Day's end minute|`number`|22|
+### Support
+
+We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, tablets, and phones which are at least 375 pixels in width (i.e., phones bigger than the iPhone SE).
+
+### [Storage](storage.md)

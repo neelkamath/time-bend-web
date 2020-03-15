@@ -1,37 +1,13 @@
-import {saveDayTimes} from '../ts/storage';
-import getReserveTime from '../ts/reserveTime';
-import {formatTime, Time} from '../ts/timeFormatter';
+import {saveDayTimes} from '../storage';
+import getReserveTime from '../reserveTime';
+import {formatTime, Time} from '../timeFormatter';
 
-testReserve({
-    dayStart: {hour: 5, minute: 0},
-    dayEnd: {hour: 19, minute: 0},
-    reserve: {hour: 14, minute: 0}
-});
-testReserve({
-    dayStart: {hour: 19, minute: 0},
-    dayEnd: {hour: 5, minute: 0},
-    reserve: {hour: 10, minute: 0}
-});
-testReserve({
-    dayStart: {hour: 5, minute: 15},
-    dayEnd: {hour: 19, minute: 30},
-    reserve: {hour: 14, minute: 15}
-});
-testReserve({
-    dayStart: {hour: 5, minute: 30},
-    dayEnd: {hour: 19, minute: 15},
-    reserve: {hour: 13, minute: 45}
-});
-testReserve({
-    dayStart: {hour: 19, minute: 15},
-    dayEnd: {hour: 5, minute: 30},
-    reserve: {hour: 10, minute: 15}
-});
-testReserve({
-    dayStart: {hour: 19, minute: 30},
-    dayEnd: {hour: 5, minute: 15},
-    reserve: {hour: 9, minute: 45}
-});
+testReserve({dayStart: {hour: 5, minute: 0}, dayEnd: {hour: 19, minute: 0}, reserve: {hour: 14, minute: 0}});
+testReserve({dayStart: {hour: 19, minute: 0}, dayEnd: {hour: 5, minute: 0}, reserve: {hour: 10, minute: 0}});
+testReserve({dayStart: {hour: 5, minute: 15}, dayEnd: {hour: 19, minute: 30}, reserve: {hour: 14, minute: 15}});
+testReserve({dayStart: {hour: 5, minute: 30}, dayEnd: {hour: 19, minute: 15}, reserve: {hour: 13, minute: 45}});
+testReserve({dayStart: {hour: 19, minute: 15}, dayEnd: {hour: 5, minute: 30}, reserve: {hour: 10, minute: 15}});
+testReserve({dayStart: {hour: 19, minute: 30}, dayEnd: {hour: 5, minute: 15}, reserve: {hour: 9, minute: 45}});
 
 interface DayReserve {
     readonly dayStart: Time
@@ -43,7 +19,7 @@ function testReserve(dayReserve: DayReserve): void {
     const start = formatTime(dayReserve.dayStart);
     const end = formatTime(dayReserve.dayEnd);
     const reserve = formatTime(dayReserve.reserve);
-    test(
+    it(
         `calculates the reserve time between ${start} and ${end} to equal ${reserve}`,
         () => testReserveTime(dayReserve.dayStart, dayReserve.dayEnd, dayReserve.reserve)
     );
