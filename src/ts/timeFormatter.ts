@@ -3,6 +3,7 @@ export interface Time {
     readonly minute: number
 }
 
+/** Formats the {@link time} (e.g., `"03:14"`). */
 export function formatTime(time: Time): string {
     return `${formatTimeUnit(time.hour)}:${formatTimeUnit(time.minute)}`;
 }

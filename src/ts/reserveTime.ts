@@ -1,37 +1,44 @@
 import {Time} from './timeFormatter';
-import {getEndHour, getEndMinute, getStartHour, getStartMinute} from './storage';
+import {getEndHour, getEndMinute, getStartHour, getStartMinute, getTasks, TaskData} from './storage';
 
 export default function getReserveTime(): Time {
     const reserveMinutes = getReserveMinutes();
-    const hour = Math.floor(reserveMinutes / 60);
-    const minute = reserveMinutes - (hour * 60);
-    return {hour, minute: Math.floor(minute)};
+    let hour = Math.floor(reserveMinutes / 60);
+    let minute = reserveMinutes - (hour * 60);
+    minute = Math.ceil(minute);
+    if (minute === 60) {
+        hour++;
+        minute = 0;
+    }
+    return {hour, minute};
 }
 
 function getReserveMinutes(): number {
-    let start = getStartTime();
-    const end = getEndTime();
-    const now = Date.now();
-    if (now > start && now < end) start = now;
-    return getTimeBetween(start, end) / 1000 / 60;
+    const minutes = getMinutesFromNow();
+    const duration = getTasks()
+        .filter((value: TaskData) => !value.completed)
+        .reduce((previous: number, current: TaskData) => previous + current.duration, 0);
+    return minutes - duration;
 }
 
-function getTimeBetween(start: number, end: number): number {
+function getMinutesFromNow(): number {
+    let start = getMilliseconds(getStartHour(), getStartMinute());
+    const end = getMilliseconds(getEndHour(), getEndMinute());
+    const now = Date.now();
+    if (now > start && now < end) start = now;
+    return getMillisecondsBetween(start, end) / 1000 / 60;
+}
+
+function getMillisecondsBetween(start: number, end: number): number {
     const milliseconds = end - start;
     const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
     return milliseconds > 0 ? milliseconds : oneDayInMilliseconds + milliseconds;
 }
 
-function getStartTime(): number {
+function getMilliseconds(hour: number, minute: number): number {
     const date = new Date();
-    date.setHours(getStartHour());
-    date.setMinutes(getStartMinute());
-    return date.getTime();
-}
-
-function getEndTime(): number {
-    const date = new Date();
-    date.setHours(getEndHour());
-    date.setMinutes(getEndMinute());
+    const second = 0;
+    const millisecond = 0;
+    date.setHours(hour, minute, second, millisecond);
     return date.getTime();
 }

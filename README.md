@@ -11,7 +11,7 @@ This is a web app for Chetan Surpur's technique of time [time bending](http://ch
 - The native Android app doesn't run on iOS.
 - I do not have the money, skills, time, or hardware to develop a free native iOS app.
 
-## [Contributing](CONTRIBUTING.md)
+## [Contributing](docs/CONTRIBUTING.md)
 
 ## License
 

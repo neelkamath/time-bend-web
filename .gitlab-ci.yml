@@ -1,5 +1,3 @@
 test:
   image: node:12
-  script:
-    - npm i
-    - npm t
+  script: npm cit

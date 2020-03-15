@@ -1,7 +1,13 @@
 import * as React from 'react';
 import {ReactElement} from 'react';
-import TimeBar from './time_bar/TimeBar';
+import TimeBar from './TimeBar';
+import TaskList from './TaskList';
 
 export default function App(): ReactElement {
-    return <TimeBar/>;
+    return (
+        <>
+            <TimeBar/>
+            <TaskList/>
+        </>
+    );
 }
