@@ -12,7 +12,7 @@ export interface TaskDataInputProps {
     readonly duration?: number
 }
 
-export default function (props: TaskDataInputProps): ReactElement {
+export default function TaskDataInput(props: TaskDataInputProps): ReactElement {
     return (
         <ThemeProvider options={{primary: '#AFAFAF'}}>
             <TaskInput task={props.task} setTask={props.setTask}/>

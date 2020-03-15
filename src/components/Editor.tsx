@@ -15,7 +15,7 @@ export interface EditorProps extends TaskProps {
     readonly setOpen: (open: boolean) => void
 }
 
-export default function (props: EditorProps): ReactElement {
+export default function Editor(props: EditorProps): ReactElement {
     const [checked, setChecked] = useState(props.taskData.completed);
     return (
         <GridInner>

@@ -4,7 +4,7 @@ import CustomButton from './CustomButton';
 import {SimpleDialog} from '@rmwc/dialog';
 import Form from './Form';
 
-export default function (): ReactElement {
+export default function TaskCreator(): ReactElement {
     const [open, setOpen] = useState(false);
     return (
         <>

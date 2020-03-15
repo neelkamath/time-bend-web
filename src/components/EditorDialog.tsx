@@ -10,7 +10,7 @@ export interface EditorDialogProps {
     readonly taskData: TaskData
 }
 
-export default function (props: EditorDialogProps): ReactElement {
+export default function EditorDialog(props: EditorDialogProps): ReactElement {
     return (
         <SimpleDialog
             open={props.open}

@@ -8,7 +8,7 @@ export interface SubmitProps extends FormProps {
     readonly duration?: number
 }
 
-export default function (props: SubmitProps): ReactElement {
+export default function Submit(props: SubmitProps): ReactElement {
     return <CustomButton label={props.taskData === undefined ? 'create' : 'update'} onClick={() => submitTask(props)}/>;
 }
 

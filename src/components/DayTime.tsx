@@ -18,7 +18,7 @@ export interface DayTimeProps {
 }
 
 /** Saves the time to {@link localStorage} when updated. */
-export default function (props: DayTimeProps): ReactElement {
+export default function DayTime(props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (
         <FormField>

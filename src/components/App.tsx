@@ -14,7 +14,7 @@ import '@material/checkbox/dist/mdc.checkbox.css';
 import '@material/layout-grid/dist/mdc.layout-grid.css';
 import '@material/icon-button/dist/mdc.icon-button.css';
 
-export default function (): ReactElement {
+export default function App(): ReactElement {
     return (
         <>
             <TimeBar/>

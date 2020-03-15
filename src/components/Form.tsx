@@ -8,7 +8,7 @@ export interface FormProps {
     readonly taskData?: TaskData
 }
 
-export default function (props: FormProps): ReactElement {
+export default function Form(props: FormProps): ReactElement {
     const [task, setTask] = useState(props.taskData?.task);
     const [duration, setDuration] = useState(props.taskData?.duration);
     return (
