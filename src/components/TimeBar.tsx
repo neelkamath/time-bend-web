@@ -1,10 +1,9 @@
-import {DayTime} from './DayTime';
+import DayTime from './DayTime';
 import * as React from 'react';
 import {ReactElement, useState} from 'react';
 // @ts-ignore: Cannot find module.
 import {Grid, GridCell} from '@rmwc/grid';
-import {ReserveTime} from './ReserveTime';
-import '@material/layout-grid/dist/mdc.layout-grid.css';
+import ReserveTime from './ReserveTime';
 import getReserveTime from '../reserveTime';
 import styled from 'styled-components';
 

@@ -27,6 +27,8 @@
     "@rmwc/dialog": "^5.7.2",
     "@rmwc/formfield": "^5.7.2",
     "@rmwc/grid": "^5.7.2",
+    "@rmwc/icon": "^5.7.2",
+    "@rmwc/icon-button": "^5.7.2",
     "@rmwc/textfield": "^5.7.2",
     "@rmwc/theme": "^5.7.2",
     "react": "^16.13.0",
@@ -40,7 +42,7 @@
       "./setupTests.ts"
     ],
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
+      "\\.(css|svg)$": "identity-obj-proxy"
     }
   }
 }

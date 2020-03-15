@@ -5,7 +5,6 @@ import {FormField} from '@rmwc/formfield';
 import {getEndTime, getStartTime, saveEndTime, saveStartTime} from '../storage';
 import {formatTime, Time} from '../timeFormatter';
 import styled from 'styled-components';
-import '@material/form-field/dist/mdc.form-field.css';
 
 export interface OnUpdate {
     (): void
@@ -19,7 +18,7 @@ export interface DayTimeProps {
 }
 
 /** Saves the time to {@link localStorage} when updated. */
-export function DayTime(props: DayTimeProps): ReactElement {
+export default function DayTime(props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (
         <FormField>
@@ -35,8 +34,8 @@ export function DayTime(props: DayTimeProps): ReactElement {
 }
 
 interface TimeInputProps extends DayTimeProps {
-    dayTime: string
-    setDayTime: Dispatch<SetStateAction<string>>
+    readonly dayTime: string
+    readonly setDayTime: Dispatch<SetStateAction<string>>
 }
 
 function TimeInput(props: TimeInputProps): ReactElement {
@@ -58,6 +57,7 @@ function TimeInput(props: TimeInputProps): ReactElement {
 }
 
 const dayTimeColor = '#989C9C';
+
 const Input = styled.input`
     @media only screen and (min-width: 768px) {
         font-size: x-large;

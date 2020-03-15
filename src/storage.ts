@@ -79,9 +79,14 @@ export interface TaskData {
 }
 
 export function saveTask(task: TaskData): void {
+    if (taskExists(task)) throw 'Task already exists';
     const tasks = getTasks();
     tasks.push(task);
     saveTasks(tasks);
+}
+
+export function taskExists(task: TaskData): boolean {
+    return getTasks().filter((value: TaskData) => value.created === task.created).length !== 0;
 }
 
 export function saveTasks(tasks: TaskData[]): void {
@@ -107,4 +112,9 @@ export function updateTask(task: TaskData): void {
 export function getTasks(): TaskData[] {
     const tasks = localStorage.getItem('tasks');
     return tasks === null ? [] : JSON.parse(tasks);
+}
+
+export function deleteTask(task: TaskData): void {
+    if (!taskExists(task)) throw "Task doesn't exist";
+    saveTasks(getTasks().filter((value: TaskData) => value.created !== task.created));
 }

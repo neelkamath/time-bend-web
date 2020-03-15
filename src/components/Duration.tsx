@@ -1,34 +1,37 @@
 import React, {ReactElement} from 'react';
 import styled from 'styled-components';
 import {TaskGridCell} from './TaskGridCell';
+// @ts-ignore: Cannot find module.
+import {GridCellProps} from '@rmwc/grid';
 
-export interface DurationProps {
+export interface DurationProps extends GridCellProps {
     /** The task's duration. */
-    duration: number
-}
-
-export function Duration(props: DurationProps): ReactElement {
-    return (
-        // @ts-ignore: Property 'duration' does not exist on type
-        <StyledGridCell duration={props.duration} desktop={1} tablet={1} phone={1}>
-            <DurationSpan>
-                {props.duration === 60 ? '1h' : `${props.duration}m`}
-            </DurationSpan>
-        </StyledGridCell>
-    );
-}
-
-interface StyledGridCellProps {
     readonly duration: number
 }
 
-const StyledGridCell = styled(TaskGridCell)<StyledGridCellProps>`
+export default function Duration(props: DurationProps): ReactElement {
+    return (
+        // @ts-ignore: Property 'duration' does not exist on type
+        <DurationGridCell {...props}>
+            <Span>
+                {props.duration === 60 ? '1h' : `${props.duration}m`}
+            </Span>
+        </DurationGridCell>
+    );
+}
+
+interface DurationGridCellProps {
+    readonly duration: number
+}
+
+const DurationGridCell = styled(TaskGridCell)<DurationGridCellProps>`
     background-color: ${(props) => colorDuration(props.duration)};
     color: #585C5D;
     display: flex;
     text-align: center;
 ` as typeof TaskGridCell;
-const DurationSpan = styled.span`
+
+const Span = styled.span`
     margin: auto;
 `;
 

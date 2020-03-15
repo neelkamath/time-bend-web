@@ -1,5 +1,5 @@
 import React, {ReactElement, useState} from 'react';
-import {OnUpdate, Task} from './Task';
+import Task, {OnUpdate} from './Task';
 import TaskCreator from './TaskCreator';
 import {getTasks, TaskData} from '../storage';
 
