@@ -6,10 +6,10 @@ import {GridCellProps} from '@rmwc/grid';
 
 export interface DurationProps extends GridCellProps {
     /** The task's duration. */
-    duration: number
+    readonly duration: number
 }
 
-export function Duration(props: DurationProps): ReactElement {
+export default function (props: DurationProps): ReactElement {
     return (
         // @ts-ignore: Property 'duration' does not exist on type
         <DurationGridCell {...props}>
@@ -30,6 +30,7 @@ const DurationGridCell = styled(TaskGridCell)<DurationGridCellProps>`
     display: flex;
     text-align: center;
 ` as typeof TaskGridCell;
+
 const Span = styled.span`
     margin: auto;
 `;

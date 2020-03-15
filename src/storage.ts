@@ -79,9 +79,14 @@ export interface TaskData {
 }
 
 export function saveTask(task: TaskData): void {
+    if (taskExists(task)) throw 'Task already exists';
     const tasks = getTasks();
     tasks.push(task);
     saveTasks(tasks);
+}
+
+export function taskExists(task: TaskData): boolean {
+    return getTasks().filter((value: TaskData) => value.created === task.created).length !== 0;
 }
 
 export function saveTasks(tasks: TaskData[]): void {

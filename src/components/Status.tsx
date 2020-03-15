@@ -3,16 +3,16 @@ import {updateTask} from '../storage';
 import styled from 'styled-components';
 // @ts-ignore: Cannot find module.
 import {Checkbox} from '@rmwc/checkbox';
-import '@material/checkbox/dist/mdc.checkbox.css';
-import '@material/form-field/dist/mdc.form-field.css';
 // @ts-ignore: Cannot find module.
 import {GridCellProps} from '@rmwc/grid';
 import {EditorProps} from './Editor';
 
 export interface StatusProps extends GridCellProps, EditorProps {
+    readonly checked: boolean
+    readonly setChecked: (open: boolean) => void
 }
 
-export function Status(props: StatusProps): ReactElement {
+export default function (props: StatusProps): ReactElement {
     return (
         <StyledCheckbox
             checked={props.checked}

@@ -1,9 +1,9 @@
 import React, {ReactElement, useState} from 'react';
-import {OnUpdate, Task} from './Task';
+import Task, {OnUpdate} from './Task';
 import TaskCreator from './TaskCreator';
 import {getTasks, TaskData} from '../storage';
 
-export default function TaskList(): ReactElement {
+export default function (): ReactElement {
     const [tasks, setTasks] = useState(getTasks());
     const onUpdate = () => setTasks(getTasks());
     return (

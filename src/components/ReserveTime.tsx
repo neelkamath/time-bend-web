@@ -3,7 +3,7 @@ import {ReactElement} from 'react';
 import {formatTimeUnit, Time} from '../timeFormatter';
 import styled from 'styled-components';
 
-export function ReserveTime(props: Time): ReactElement {
+export default function (props: Time): ReactElement {
     return (
         <>
             <ValueSpan>
@@ -23,6 +23,7 @@ const ValueSpan = styled.span`
     font-size: xx-large;
     font-weight: bold;
 `;
+
 const LabelSpan = styled.span`
     color: white;
 `;
