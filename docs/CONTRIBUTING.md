@@ -41,7 +41,7 @@ Saves the production build to `dist/`.
 
 ### Components
 
-We use [rmwc](https://rmwc.io/) for UI components. Use the [CustomButton](src/ts/components/CustomButton.tsx) instead of rmwc's `Button`.
+We use [rmwc](https://rmwc.io/) for UI components. Use the [CustomButton](src/components/CustomButton.tsx) instead of rmwc's `Button`.
 
 ### Support
 

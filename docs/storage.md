@@ -1,6 +1,6 @@
 # Storage
 
-Data is stored using `localStorage`, and manipulated using the [`storage.ts`](src/ts/storage.ts) abstraction layer. Each of the following headings document the key-value pairs stored.
+Data is stored using `localStorage`, and manipulated using the [`storage.ts`](src/storage.ts) abstraction layer. Each of the following headings document the key-value pairs stored.
 
 ## Day Times
 
