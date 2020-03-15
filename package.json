@@ -42,7 +42,7 @@
       "./setupTests.ts"
     ],
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
+      "\\.(css|svg)$": "identity-obj-proxy"
     }
   }
 }

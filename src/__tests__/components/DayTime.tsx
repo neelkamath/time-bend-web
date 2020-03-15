@@ -1,4 +1,4 @@
-import {DayTime} from '../../components/DayTime';
+import DayTime from '../../components/DayTime';
 import React from 'react';
 import {mount} from 'enzyme';
 

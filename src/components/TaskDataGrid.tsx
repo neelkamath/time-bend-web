@@ -33,11 +33,7 @@ interface TaskGridProps {
     readonly completed: boolean
 }
 
-function TaskGrid(props: TaskGridProps): ReactElement {
-    return <StyledTaskGrid {...props}/>;
-}
-
-const StyledTaskGrid = styled(Grid)<TaskGridProps>`
+const TaskGrid = styled(Grid)<TaskGridProps>`
     background-color: ${(props) => props.completed ? '#EEEEEE' : 'initial'};
     border-bottom: 0.05em solid #E3E3E3;
     color: ${(props) => props.completed ? '#A4A4A4' : 'initial'};
@@ -47,10 +43,9 @@ const StyledTaskGrid = styled(Grid)<TaskGridProps>`
     font-weight: bold;
     padding: 0;
     text-decoration: ${(props) => props.completed ? 'line-through' : 'initial'};
-` as typeof TaskGrid;
-
+` as typeof Grid;
 
 const StyledTaskGridCell = styled(TaskGridCell)`
     margin-bottom: auto;
     margin-top: auto;
-`;
+` as typeof TaskGridCell;
