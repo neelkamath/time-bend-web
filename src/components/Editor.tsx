@@ -24,7 +24,20 @@ export default function Editor(props: EditorProps): ReactElement {
                 <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
             }
             <GridCell desktop={6} tablet={4} phone={2}>
-                <StyledIconButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)}/>
+                <StyledIconButton 
+                    label='Edit' 
+                    icon={editIcon} 
+                    onClick={(e) => {
+                        if(props.taskData.completed){
+                            props.setOpen(false);
+                            // e.target.classList.remove('mdc-icon-button');
+                            e.target.style.zIndex="-1";
+                        }else{
+                            props.setOpen(true);
+                        }
+                    }}
+                    ripple={false}
+                />
             </GridCell>
         </GridInner>
     );
@@ -32,4 +45,12 @@ export default function Editor(props: EditorProps): ReactElement {
 
 const StyledIconButton = styled(IconButton)`
     margin-left: 0.375em;
+    align-items: center;
+    padding: 25px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    position: relative;
+    margin-top: 0.30em;
+    margin-bottom: 0.30em;
 ` as typeof IconButton;
