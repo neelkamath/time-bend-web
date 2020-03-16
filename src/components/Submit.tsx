@@ -6,13 +6,25 @@ import {FormProps} from './Form';
 export interface SubmitProps extends FormProps {
     readonly task?: string
     readonly duration?: number
+    readonly onSubmit: () => void
 }
 
 export default function Submit(props: SubmitProps): ReactElement {
-    return <CustomButton label={props.taskData === undefined ? 'create' : 'update'} onClick={() => submitTask(props)}/>;
+    return (
+        <CustomButton
+            label={props.taskData === undefined ? 'create' : 'update'}
+            onClick={
+                (e: Event) => {
+                    e.preventDefault();
+                    storeTask(props);
+                    props.onSubmit();
+                }
+            }
+        />
+    );
 }
 
-function submitTask(props: SubmitProps): void {
+function storeTask(props: SubmitProps): void {
     if (props.task === undefined || props.duration === undefined) return;
     if (props.taskData === undefined)
         saveTask({task: props.task, duration: props.duration, completed: false, created: Date.now()});

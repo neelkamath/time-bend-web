@@ -5,7 +5,7 @@ import React, {ReactElement} from 'react';
 
 export interface CustomButtonProps {
     readonly label: string
-    readonly onClick: () => void
+    readonly onClick: (e: Event) => void
 }
 
 export default function CustomButton(props: CustomButtonProps): ReactElement {

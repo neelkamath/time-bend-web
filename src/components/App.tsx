@@ -19,8 +19,15 @@ import {Grid, GridCell} from '@rmwc/grid';
 import TaskClearer from './TaskClearer';
 import styled from 'styled-components';
 import About from './About';
+import {getTasks} from '../storage';
+
+export interface OnUpdate {
+    (): void
+}
 
 export default function App(): ReactElement {
+    const [tasks, setTasks] = useState(getTasks());
+    const onUpdate = () => setTasks(getTasks());
     const [clearerOpen, clearerSetOpen] = useState(false);
     const [aboutOpen, aboutSetOpen] = useState(false);
     return (
@@ -32,10 +39,10 @@ export default function App(): ReactElement {
                 </GridCell>
                 <GridCell desktop={9} tablet={5} phone={1}/>
                 <GridCell desktop={1} tablet={1} phone={1}>
-                    <TaskClearer open={clearerOpen} setOpen={clearerSetOpen}/>
+                    <TaskClearer onUpdate={onUpdate} open={clearerOpen} setOpen={clearerSetOpen}/>
                 </GridCell>
             </StyledGrid>
-            <TaskList/>
+            <TaskList onUpdate={onUpdate} tasks={tasks}/>
         </>
     );
 }

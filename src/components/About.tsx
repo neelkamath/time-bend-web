@@ -5,8 +5,8 @@ import Explanation from './Explanation';
 import CustomDialog from './CustomDialog';
 
 export interface AboutProps {
-    open: boolean
-    setOpen: Dispatch<SetStateAction<boolean>>
+    readonly open: boolean
+    readonly setOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export default function About(props: AboutProps): ReactElement {

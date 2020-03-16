@@ -3,10 +3,10 @@ import React, {Dispatch, ReactElement, SetStateAction} from 'react';
 import {SimpleDialog} from '@rmwc/dialog';
 
 export interface CustomDialogProps {
-    open: boolean
-    setOpen: Dispatch<SetStateAction<boolean>>
-    title?: string
-    children: any
+    readonly open: boolean
+    readonly setOpen: Dispatch<SetStateAction<boolean>>
+    readonly title?: string
+    readonly children: React.ReactNode
 }
 
 export default function CustomDialog(props: CustomDialogProps): ReactElement {
@@ -17,7 +17,7 @@ export default function CustomDialog(props: CustomDialogProps): ReactElement {
             cancelLabel={null}
             open={props.open}
             onClose={() => props.setOpen(false)}
-            body={{...props.children}}
+            body={props.children}
         />
     );
 }

@@ -3,10 +3,7 @@ import {TaskData} from '../storage';
 import '@rmwc/icon/icon.css';
 import EditorDialog from './EditorDialog';
 import TaskDataGrid from './TaskDataGrid';
-
-export interface OnUpdate {
-    (): void
-}
+import {OnUpdate} from './App';
 
 export interface TaskProps {
     readonly taskData: TaskData
@@ -17,7 +14,7 @@ export default function Task(props: TaskProps): ReactElement {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <EditorDialog open={open} taskData={props.taskData} setOpen={setOpen}/>
+            <EditorDialog onUpdate={props.onUpdate} open={open} taskData={props.taskData} setOpen={setOpen}/>
             <TaskDataGrid {...props} setOpen={setOpen}/>
         </>
     );
