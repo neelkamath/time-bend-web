@@ -17,7 +17,7 @@ export interface DayTimeProps {
     readonly onUpdate: OnUpdate
 }
 
-/** Saves the time to {@link localStorage} when updated. */
+/** Saves the time to `localStorage` when updated. */
 export default function DayTime(props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (
