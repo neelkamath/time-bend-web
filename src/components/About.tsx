@@ -9,7 +9,7 @@ export interface AboutProps {
     readonly setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function About(props: AboutProps): ReactElement {
+export default function (props: AboutProps): ReactElement {
     return (
         <>
             <CustomDialog open={props.open} setOpen={props.setOpen}>

@@ -8,7 +8,7 @@ export interface CustomButtonProps {
     readonly onClick: (e: Event) => void
 }
 
-export default function CustomButton(props: CustomButtonProps): ReactElement {
+export default function (props: CustomButtonProps): ReactElement {
     return <StyledButton {...props} outlined/>
 }
 

@@ -1,0 +1,42 @@
+{
+  "background_color": "white",
+  "categories": [
+    "productivity"
+  ],
+  "description": "For people who want to get more done in their day, Time Bend is a productivity app that causes you to significantly cut down on time wasted procrastinating. Unlike other productivity apps, Time Bend actually works, and requires only a few minutes of investment per day.",
+  "dir": "ltr",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-US",
+  "name": "Time Bend",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=io.github.neelkamath.timebend",
+      "id": "io.github.neelkamath.timebend"
+    }
+  ],
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "screenshot.png",
+      "sizes": "2880x1378",
+      "type": "image/png"
+    }
+  ],
+  "short_name": "Time Bend",
+  "start_url": "index.html",
+  "theme_color": "#999999"
+}

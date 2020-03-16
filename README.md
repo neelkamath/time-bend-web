@@ -1,6 +1,6 @@
 # Time Bend
 
-![Cover](cover.png)
+![Cover](branding/cover.png)
 
 Use the app [here](https://time-bend-web.netlify.com/).
 

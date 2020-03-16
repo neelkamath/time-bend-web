@@ -12,7 +12,7 @@ export interface EditorDialogProps {
     readonly onUpdate: OnUpdate
 }
 
-export default function EditorDialog(props: EditorDialogProps): ReactElement {
+export default function (props: EditorDialogProps): ReactElement {
     return (
         <CustomDialog open={props.open} setOpen={props.setOpen}>
             <Form

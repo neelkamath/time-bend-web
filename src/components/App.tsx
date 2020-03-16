@@ -25,7 +25,7 @@ export interface OnUpdate {
     (): void
 }
 
-export default function App(): ReactElement {
+export default function (): ReactElement {
     const [tasks, setTasks] = useState(getTasks());
     const onUpdate = () => setTasks(getTasks());
     const [clearerOpen, clearerSetOpen] = useState(false);

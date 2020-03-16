@@ -39,16 +39,19 @@ npm run build
 ```
 Saves the production build to `dist/`.
 
-### Style Guide
-
-- We use [rmwc](https://rmwc.io/) for UI components. 
-- Use the [`CustomButton`](src/components/CustomButton.tsx) instead of rmwc's [`Button`](https://rmwc.io/buttons) directly.
-- Use the [`CustomDialog`](src/components/CustomDialog.tsx) instead of rmwc's [Dialogs](https://rmwc.io/dialogs).
-- Keep rmwc's style imports (e.g., `import '@material/button/dist/mdc.button.css';`) in [App.tsx](src/components/App.tsx) so that is' easier to refactor components into different files.
-- When building exported components, use `export default`, and name the functions (otherwise [Enzyme](https://enzymejs.github.io/enzyme/) cannot find them).
-
 ### Support
 
 We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, tablets, and phones which are at least 375 pixels in width (i.e., phones bigger than the iPhone SE).
 
+### Style Guide
+
+- We use [rmwc](https://rmwc.io/) for UI components. 
+- Use the [`CustomButton`](../src/components/CustomButton.tsx) instead of rmwc's [`Button`](https://rmwc.io/buttons) directly.
+- Use the [`CustomDialog`](../src/components/CustomDialog.tsx) instead of rmwc's [Dialogs](https://rmwc.io/dialogs).
+- Keep rmwc's style imports (e.g., `import '@material/button/dist/mdc.button.css';`) in [App.tsx](../src/components/App.tsx) so that is' easier to refactor components into different files.
+
 ### [Storage](storage.md)
+
+## Branding
+
+Branding assets are stored in the [`branding`](../branding) directory.
