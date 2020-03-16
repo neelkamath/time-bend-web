@@ -1,8 +1,8 @@
 import {default as React, Dispatch, ReactElement, SetStateAction} from 'react';
 // @ts-ignore: Cannot find module.
-import {SimpleDialog} from '@rmwc/dialog';
 import CustomButton from './CustomButton';
 import {deleteTasks} from '../storage';
+import CustomDialog from './CustomDialog';
 
 export interface TaskClearerProps {
     open: boolean
@@ -12,14 +12,9 @@ export interface TaskClearerProps {
 export default function TaskClearer(props: TaskClearerProps): ReactElement {
     return (
         <>
-            <SimpleDialog
-                title='Delete all tasks?'
-                acceptLabel={null}
-                cancelLabel={null}
-                open={props.open}
-                onClose={() => props.setOpen(false)}
-                body={<CustomButton label='delete' onClick={() => clear(props.setOpen)}/>}
-            />
+            <CustomDialog title='Delete all tasks?' open={props.open} setOpen={props.setOpen}>
+                <CustomButton label='delete' onClick={() => clear(props.setOpen)}/>
+            </CustomDialog>
             <CustomButton label='clear' onClick={() => props.setOpen(true)}/>
         </>
     );
