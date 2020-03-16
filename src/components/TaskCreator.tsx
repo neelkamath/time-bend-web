@@ -1,16 +1,28 @@
 import React, {ReactElement, useState} from 'react';
 import CustomButton from './CustomButton';
 // @ts-ignore: Cannot find module.
-import {SimpleDialog} from '@rmwc/dialog';
 import Form from './Form';
+import CustomDialog from './CustomDialog';
+import {OnUpdate} from './App';
 
-export default function TaskCreator(): ReactElement {
+export interface TaskCreatorProps {
+    onUpdate: OnUpdate
+}
+
+export default function TaskCreator(props: TaskCreatorProps): ReactElement {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <SimpleDialog open={open} acceptLabel={null} cancelLabel={null} onClose={() => setOpen(false)}>
-                <Form/>
-            </SimpleDialog>
+            <CustomDialog open={open} setOpen={setOpen}>
+                <Form
+                    onSubmit={
+                        () => {
+                            setOpen(false);
+                            props.onUpdate();
+                        }
+                    }
+                />
+            </CustomDialog>
             <CustomButton label='↓ new task' onClick={() => setOpen(true)}/>
         </>
     );

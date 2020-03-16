@@ -89,6 +89,7 @@ export function taskExists(task: TaskData): boolean {
     return getTasks().filter((value: TaskData) => value.created === task.created).length !== 0;
 }
 
+/** Overwrites the tasks with the supplied value. */
 export function saveTasks(tasks: TaskData[]): void {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -117,4 +118,8 @@ export function getTasks(): TaskData[] {
 export function deleteTask(task: TaskData): void {
     if (!taskExists(task)) throw "Task doesn't exist";
     saveTasks(getTasks().filter((value: TaskData) => value.created !== task.created));
+}
+
+export function deleteTasks(): void {
+    saveTasks([]);
 }

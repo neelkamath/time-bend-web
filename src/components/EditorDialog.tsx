@@ -1,23 +1,29 @@
 import {TaskData} from '../storage';
-import React, {ReactElement} from 'react';
+import React, {Dispatch, ReactElement, SetStateAction} from 'react';
 // @ts-ignore: Cannot find module.
-import {SimpleDialog} from '@rmwc/dialog';
 import Form from './Form';
+import CustomDialog from './CustomDialog';
+import {OnUpdate} from './App';
 
 export interface EditorDialogProps {
     readonly open: boolean
-    readonly setOpen: (open: boolean) => void
+    readonly setOpen: Dispatch<SetStateAction<boolean>>
     readonly taskData: TaskData
+    readonly onUpdate: OnUpdate
 }
 
 export default function EditorDialog(props: EditorDialogProps): ReactElement {
     return (
-        <SimpleDialog
-            open={props.open}
-            acceptLabel={null}
-            cancelLabel={null}
-            onClose={() => props.setOpen(false)}
-            body={<Form taskData={props.taskData}/>}
-        />
+        <CustomDialog open={props.open} setOpen={props.setOpen}>
+            <Form
+                onSubmit={
+                    () => {
+                        props.setOpen(false);
+                        props.onUpdate();
+                    }
+                }
+                taskData={props.taskData}
+            />
+        </CustomDialog>
     );
 }

@@ -6,18 +6,14 @@ import {getEndTime, getStartTime, saveEndTime, saveStartTime} from '../storage';
 import {formatTime, Time} from '../timeFormatter';
 import styled from 'styled-components';
 
-export interface OnUpdate {
-    (): void
-}
-
 export interface DayTimeProps {
     /** `true` if it's the start time, `false` if it's the end time. */
     readonly isStart: boolean
     /** Gets called with the updated time. */
-    readonly onUpdate: OnUpdate
+    readonly onUpdate: () => void
 }
 
-/** Saves the time to {@link localStorage} when updated. */
+/** Saves the time to `localStorage` when updated. */
 export default function DayTime(props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (

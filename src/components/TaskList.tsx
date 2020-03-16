@@ -1,16 +1,20 @@
-import React, {ReactElement, useState} from 'react';
-import Task, {OnUpdate} from './Task';
+import React, {ReactElement} from 'react';
+import Task from './Task';
 import TaskCreator from './TaskCreator';
-import {getTasks, TaskData} from '../storage';
+import {TaskData} from '../storage';
+import {OnUpdate} from './App';
 
-export default function TaskList(): ReactElement {
-    const [tasks, setTasks] = useState(getTasks());
-    const onUpdate = () => setTasks(getTasks());
+export interface TaskListProps {
+    tasks: TaskData[]
+    onUpdate: OnUpdate
+}
+
+export default function TaskList(props: TaskListProps): ReactElement {
     return (
         <>
-            {createTasks(tasks, onUpdate, false)}
-            <TaskCreator/>
-            {createTasks(tasks, onUpdate, true)}
+            {createTasks(props.tasks, props.onUpdate, false)}
+            <TaskCreator onUpdate={props.onUpdate}/>
+            {createTasks(props.tasks, props.onUpdate, true)}
         </>
     );
 }

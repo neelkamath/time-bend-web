@@ -6,6 +6,7 @@ import CustomButton from './CustomButton';
 
 export interface FormProps {
     readonly taskData?: TaskData
+    readonly onSubmit: () => void
 }
 
 export default function Form(props: FormProps): ReactElement {
@@ -15,7 +16,7 @@ export default function Form(props: FormProps): ReactElement {
         <form>
             <TaskDataInput task={task} duration={duration} setTask={setTask} setDuration={setDuration}/>
             <br/>
-            <Submit taskData={props.taskData} task={task} duration={duration}/>
+            <Submit onSubmit={props.onSubmit} taskData={props.taskData} task={task} duration={duration}/>
             <Delete {...props}/>
         </form>
     );
