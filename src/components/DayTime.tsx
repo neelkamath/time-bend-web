@@ -16,7 +16,7 @@ export interface DayTimeProps {
 export default function (props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (
-        <FormField>
+        <StyledFormField>
             <label>
                 <TimeInput dayTime={dayTime} setDayTime={setDayTime} {...props}/>
                 <br/>
@@ -24,9 +24,16 @@ export default function (props: DayTimeProps): ReactElement {
                     day {props.isStart ? 'start' : 'end'}
                 </Span>
             </label>
-        </FormField>
+        </StyledFormField>
     );
 }
+
+const StyledFormField = styled(FormField)`
+    @media only screen and (min-width: 768px) {
+        margin-top: 0;
+    }
+    margin-top: 0.3em;
+` as typeof FormField;
 
 interface TimeInputProps extends DayTimeProps {
     readonly dayTime: string
@@ -64,6 +71,7 @@ const Input = styled.input`
     font-weight: bold;
     outline: none;
     padding-top: 0.2em;
+    white-space: nowrap;
 `;
 
 function parseTime(event: ChangeEvent<HTMLInputElement>): Time {
