@@ -1,9 +1,8 @@
 {
   "scripts": {
-    "test": "jest",
+    "test": "jest && lhci autorun",
     "dev": "parcel public/index.html",
-    "build": "parcel build --public-url ./ public/index.html && node src/workboxBuild.ts",
-    "lighthouse": "lhci autorun"
+    "build": "parcel build --public-url ./ public/index.html && node src/workboxBuild.ts"
   },
   "devDependencies": {
     "@lhci/cli": "^0.3.9",
