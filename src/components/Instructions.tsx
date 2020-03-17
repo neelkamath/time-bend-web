@@ -4,12 +4,12 @@ import CustomButton from './CustomButton';
 import Explanation from './Explanation';
 import CustomDialog from './CustomDialog';
 
-export interface AboutProps {
+export interface InstructionsProps {
     readonly open: boolean
     readonly setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function About(props: AboutProps): ReactElement {
+export default function (props: InstructionsProps): ReactElement {
     return (
         <>
             <CustomDialog open={props.open} setOpen={props.setOpen}>

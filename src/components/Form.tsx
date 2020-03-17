@@ -9,7 +9,7 @@ export interface FormProps {
     readonly onSubmit: () => void
 }
 
-export default function Form(props: FormProps): ReactElement {
+export default function (props: FormProps): ReactElement {
     const [task, setTask] = useState(props.taskData?.task);
     const [duration, setDuration] = useState(props.taskData?.duration);
     return (

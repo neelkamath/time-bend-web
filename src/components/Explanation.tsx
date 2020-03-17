@@ -1,6 +1,6 @@
 import {default as React, ReactElement} from 'react';
 
-export default function Explanation(): ReactElement {
+export default function (): ReactElement {
     return (
         <>
             <p>

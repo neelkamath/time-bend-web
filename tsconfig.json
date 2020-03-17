@@ -1,6 +1,7 @@
 {
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "public/sw.ts"
   ],
   "compilerOptions": {
     "target": "ES2019",
