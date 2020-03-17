@@ -15,10 +15,10 @@ export default function TaskDataGrid(props: TaskDataGridProps): ReactElement {
     return (
         // @ts-ignore: Type 'number' is not assignable to type 'boolean'.
         <TaskGrid completed={props.taskData.completed ? 1 : 0}>
-            <GridCell desktop={1} tablet={1} phone={1}>
+            <GridCell desktop={2} tablet={1} phone={1} align={"middle"}>
                 <Editor setOpen={props.setOpen} {...props}/>
             </GridCell>
-            <StyledTaskGridCell desktop={10} tablet={6} phone={2}>
+            <StyledTaskGridCell desktop={9} tablet={6} phone={2}>
                 {props.taskData.task}
             </StyledTaskGridCell>
             {
