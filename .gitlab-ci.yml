@@ -4,4 +4,4 @@ test:
 
 lighthouse:
   image: cypress/browsers:node12.6.0-chrome77
-  script: lhci autorun
+  script: npm run lighthouse
