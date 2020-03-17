@@ -56,11 +56,11 @@ const dayTimeColor = '#989C9C';
 const Input = styled.input`
     @media only screen and (min-width: 768px) {
         font-size: x-large;
+        font-weight: bold;
     }
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: ${dayTimeColor};
-    font-weight: bold;
     outline: none;
     padding-top: 0.2em;
 `;
