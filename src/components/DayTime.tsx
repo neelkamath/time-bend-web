@@ -60,7 +60,6 @@ const Input = styled.input`
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: ${dayTimeColor};
-    font-size: 1.1em;
     font-weight: bold;
     outline: none;
     padding-top: 0.2em;
