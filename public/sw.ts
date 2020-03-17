@@ -2,6 +2,7 @@
 
 import {registerRoute} from 'workbox-routing';
 import {StaleWhileRevalidate} from 'workbox-strategies';
+import {precache} from 'workbox-precaching';
 
-registerRoute('index.html', new StaleWhileRevalidate());
+precache(['index.html']);
 registerRoute(/\.(?:html|css|js|png|svg|webmanifest)$/, new StaleWhileRevalidate());
