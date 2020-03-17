@@ -39,7 +39,7 @@ export default function (): ReactElement {
                 </GridCell>
                 <GridCell desktop={9} tablet={5} phone={1}/>
                 <GridCell desktop={1} tablet={1} phone={1}>
-                    <TaskClearer onUpdate={onUpdate} open={clearerOpen} setOpen={clearerSetOpen}/>
+                    <TaskClearer onClear={onUpdate} open={clearerOpen} setOpen={clearerSetOpen}/>
                 </GridCell>
             </StyledGrid>
             <TaskList onUpdate={onUpdate} tasks={tasks}/>

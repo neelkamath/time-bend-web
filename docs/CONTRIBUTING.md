@@ -30,7 +30,7 @@ npm t
 ```
 npm run dev
 ```
-Opens http://localhost:1234/ with hot reload replacement.
+Starts the development server on http://localhost:1234/ with hot module replacement enabled.
 
 ### Production
 
