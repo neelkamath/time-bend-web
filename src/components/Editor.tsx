@@ -6,9 +6,9 @@ import Status from './Status';
 import editIcon from '../../public/edit.svg';
 import {TaskProps} from './Task';
 import styled from 'styled-components';
-// @ts-ignore: Cannot find module.
-import {IconButton} from '@rmwc/icon-button';
 import {TaskData} from '../storage';
+// @ts-ignore: Cannot find module.
+import {Button} from '@rmwc/button';
 
 export interface EditorProps extends TaskProps {
     readonly taskData: TaskData
@@ -25,19 +25,24 @@ export default function (props: EditorProps): ReactElement {
                     // @ts-ignore: Property does not exist on type.
                     <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
                 }
-                <StyledIconButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)} ripple={false}/>
+                <StyledButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)} ripple={false}/>
             </StyledGridCell>
         </GridInner>
     );
 }
 
-const StyledIconButton = styled(IconButton)`
-    border-radius: 50%;
-    border: none;
-    outline: none;
-` as typeof IconButton;
-
 const StyledGridCell = styled(GridCell)`
     padding-top: 0.234em;
     padding-bottom: 0.234em;
-`as typeof GridCell;
+` as typeof GridCell;
+
+const StyledButton = styled(Button)`
+    @media only screen and (min-width: 768px) {
+        margin-left: 1.75em;
+    }
+    border: none;
+    border-radius: 50%;
+    margin-left: 0.8em;
+    margin-top: 0.25em;
+    outline: none;
+` as typeof Button;

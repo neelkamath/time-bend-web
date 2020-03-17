@@ -12,7 +12,6 @@ import '@material/line-ripple/dist/mdc.line-ripple.css';
 import '@material/theme/dist/mdc.theme.css';
 import '@material/checkbox/dist/mdc.checkbox.css';
 import '@material/layout-grid/dist/mdc.layout-grid.css';
-import '@material/icon-button/dist/mdc.icon-button.css';
 // @ts-ignore: Cannot find module.
 import {Grid, GridCell} from '@rmwc/grid';
 // @ts-ignore: Cannot find module.
