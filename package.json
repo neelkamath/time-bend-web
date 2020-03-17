@@ -2,7 +2,8 @@
   "scripts": {
     "test": "jest",
     "dev": "parcel public/index.html",
-    "build": "parcel build --public-url ./ public/index.html"
+    "build": "parcel build --public-url ./ public/index.html",
+    "sw": "workbox injectManifest src/workboxConfig.ts"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
@@ -29,6 +30,7 @@
     "@rmwc/icon-button": "^5.7.2",
     "@rmwc/textfield": "^5.7.2",
     "@rmwc/theme": "^5.7.2",
+    "@types/node": "^13.9.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.1",
