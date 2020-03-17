@@ -1,5 +1,5 @@
 {
-  "background_color": "white",
+  "background_color": "#F3F3F3",
   "categories": [
     "productivity"
   ],
@@ -19,7 +19,7 @@
     }
   ],
   "lang": "en-US",
-  "name": "Time Bend",
+  "name": "Time Bend - Get Everything Done And More",
   "prefer_related_applications": true,
   "related_applications": [
     {
@@ -38,5 +38,5 @@
   ],
   "short_name": "Time Bend",
   "start_url": "index.html",
-  "theme_color": "#99DB79"
+  "theme_color": "#2F3840"
 }

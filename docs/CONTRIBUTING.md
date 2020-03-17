@@ -54,4 +54,6 @@ We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, 
 
 ## Branding
 
-Branding assets are stored in the [`branding`](../branding) directory.
+- [Images](../branding)
+- Foreground color: `#2F3840`
+- Background color: `#F3F3F3`
