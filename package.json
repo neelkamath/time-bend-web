@@ -2,19 +2,18 @@
   "scripts": {
     "test": "jest",
     "dev": "parcel public/index.html",
-    "build": "parcel build --public-url ./ public/index.html"
+    "build": "parcel build --public-url ./ public/index.html && node src/workboxBuild.ts"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/styled-components": "^5.0.1",
-    "@types/workbox-routing": "^4.3.0",
-    "@types/workbox-strategies": "^4.3.0",
     "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
     "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "workbox-build": "^5.0.0"
   },
   "dependencies": {
     "@material/button": "^5.1.0",
@@ -30,9 +29,7 @@
     "@rmwc/theme": "^5.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "styled-components": "^5.0.1",
-    "workbox-routing": "^5.0.0",
-    "workbox-strategies": "^5.0.0"
+    "styled-components": "^5.0.1"
   },
   "private": true,
   "jest": {
