@@ -24,12 +24,10 @@ export default function (props: StatusProps): ReactElement {
             phone={props.phone}
             onChange={
                 (e: ChangeEvent<HTMLInputElement>) => {
-                    if(!props.checked){
-                        const checked = e.target.checked;
-                        props.setChecked(checked);
-                        updateTask({...props.taskData, completed: checked});
-                        props.onUpdate();
-                    }
+                    const checked = e.target.checked;
+                    props.setChecked(checked);
+                    updateTask({...props.taskData, completed: checked});
+                    props.onUpdate();
                 }
             }
         />
