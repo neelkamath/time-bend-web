@@ -1,6 +1,6 @@
 # Time Bend
 
-![Cover](cover.png)
+![Cover](branding/twitter_header_photo_1.png)
 
 Use the app [here](https://time-bend-web.netlify.com/).
 

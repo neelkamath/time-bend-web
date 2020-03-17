@@ -18,14 +18,14 @@ import {Grid, GridCell} from '@rmwc/grid';
 // @ts-ignore: Cannot find module.
 import TaskClearer from './TaskClearer';
 import styled from 'styled-components';
-import About from './About';
 import {getTasks} from '../storage';
+import Instructions from './Instructions';
 
 export interface OnUpdate {
     (): void
 }
 
-export default function App(): ReactElement {
+export default function (): ReactElement {
     const [tasks, setTasks] = useState(getTasks());
     const onUpdate = () => setTasks(getTasks());
     const [clearerOpen, clearerSetOpen] = useState(false);
@@ -35,11 +35,11 @@ export default function App(): ReactElement {
             <TimeBar/>
             <StyledGrid>
                 <GridCell desktop={2} tablet={2} phone={2}>
-                    <About open={aboutOpen} setOpen={aboutSetOpen}/>
+                    <Instructions open={aboutOpen} setOpen={aboutSetOpen}/>
                 </GridCell>
                 <GridCell desktop={9} tablet={5} phone={1}/>
                 <GridCell desktop={1} tablet={1} phone={1}>
-                    <TaskClearer onUpdate={onUpdate} open={clearerOpen} setOpen={clearerSetOpen}/>
+                    <TaskClearer onClear={onUpdate} open={clearerOpen} setOpen={clearerSetOpen}/>
                 </GridCell>
             </StyledGrid>
             <TaskList onUpdate={onUpdate} tasks={tasks}/>

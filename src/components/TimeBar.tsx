@@ -7,7 +7,7 @@ import ReserveTime from './ReserveTime';
 import getReserveTime from '../reserveTime';
 import styled from 'styled-components';
 
-export default function TimeBar(): ReactElement {
+export default function (): ReactElement {
     const reserveTime = getReserveTime();
     const [reserveHour, setReserveHour] = useState(reserveTime.hour);
     const [reserveMinute, setReserveMinute] = useState(reserveTime.minute);
