@@ -9,7 +9,7 @@ export interface DurationProps extends GridCellProps {
     readonly duration: number
 }
 
-export default function Duration(props: DurationProps): ReactElement {
+export default function (props: DurationProps): ReactElement {
     return (
         // @ts-ignore: Property 'duration' does not exist on type
         <DurationGridCell {...props}>

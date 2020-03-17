@@ -9,12 +9,11 @@ import styled from 'styled-components';
 export interface DayTimeProps {
     /** `true` if it's the start time, `false` if it's the end time. */
     readonly isStart: boolean
-    /** Gets called with the updated time. */
     readonly onUpdate: () => void
 }
 
 /** Saves the time to `localStorage` when updated. */
-export default function DayTime(props: DayTimeProps): ReactElement {
+export default function (props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (
         <FormField>
@@ -61,7 +60,7 @@ const Input = styled.input`
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: ${dayTimeColor};
-    font-size: large;
+    font-size: 1.1em;
     font-weight: bold;
     outline: none;
     padding-top: 0.2em;

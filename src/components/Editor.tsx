@@ -15,7 +15,7 @@ export interface EditorProps extends TaskProps {
     readonly setOpen: (open: boolean) => void
 }
 
-export default function Editor(props: EditorProps): ReactElement {
+export default function (props: EditorProps): ReactElement {
     const [checked, setChecked] = useState(props.taskData.completed);
     
     return (
@@ -25,20 +25,7 @@ export default function Editor(props: EditorProps): ReactElement {
                     // @ts-ignore: Property does not exist on type.
                     <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
                 }
-                <StyledIconButton 
-                    label='Edit' 
-                    icon={editIcon} 
-                    onClick={(e) => {
-                        if(props.taskData.completed){
-                            props.setOpen(false);
-                            // e.target.classList.remove('mdc-icon-button');
-                            e.target.style.zIndex="-1";
-                        }else{
-                            props.setOpen(true);
-                        }
-                    }}
-                    ripple={false}
-                />
+                <StyledIconButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)} ripple={false}/>
             </GridCell>
         </GridInner>
     );

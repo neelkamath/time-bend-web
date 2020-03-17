@@ -3,7 +3,7 @@ import {ReactElement} from 'react';
 import {formatTimeUnit, Time} from '../timeFormatter';
 import styled from 'styled-components';
 
-export default function ReserveTime(props: Time): ReactElement {
+export default function (props: Time): ReactElement {
     return (
         <>
             <ValueSpan>

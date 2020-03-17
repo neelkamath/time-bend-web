@@ -9,7 +9,7 @@ export interface TaskListProps {
     onUpdate: OnUpdate
 }
 
-export default function TaskList(props: TaskListProps): ReactElement {
+export default function (props: TaskListProps): ReactElement {
     return (
         <>
             {createTasks(props.tasks, props.onUpdate, false)}

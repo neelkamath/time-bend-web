@@ -12,7 +12,7 @@ export interface StatusProps extends GridCellProps, EditorProps {
     readonly setChecked: (open: boolean) => void
 }
 
-export default function Status(props: StatusProps): ReactElement {
+export default function (props: StatusProps): ReactElement {
     return (
         <StyledCheckbox
             checked={props.checked}
@@ -24,12 +24,10 @@ export default function Status(props: StatusProps): ReactElement {
             phone={props.phone}
             onChange={
                 (e: ChangeEvent<HTMLInputElement>) => {
-                    if(!props.checked){
-                        const checked = e.target.checked;
-                        props.setChecked(checked);
-                        updateTask({...props.taskData, completed: checked});
-                        props.onUpdate();
-                    }
+                    const checked = e.target.checked;
+                    props.setChecked(checked);
+                    updateTask({...props.taskData, completed: checked});
+                    props.onUpdate();
                 }
             }
         />
