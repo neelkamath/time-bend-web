@@ -32,6 +32,8 @@ npm run dev
 ```
 Starts the development server on http://localhost:1234/ with hot module replacement enabled.
 
+Parcel leaks an implementation detail for certain uses of `async`/`await` (see [this issue](https://github.com/parcel-bundler/parcel/issues/1762#issuecomment-504389468)). As a workaround, the statement `import 'regenerator-runtime/runtime';` is included in certain files.
+
 ### Production
 
 ```
