@@ -2,7 +2,8 @@
   "scripts": {
     "test": "jest",
     "dev": "parcel public/index.html",
-    "build": "parcel build --public-url ./ public/index.html",
+    "build": "npm run bundle && npm run sw",
+    "bundle": "parcel build --public-url ./ public/index.html",
     "sw": "workbox injectManifest src/workboxConfig.ts"
   },
   "devDependencies": {
