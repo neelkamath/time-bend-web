@@ -24,20 +24,7 @@ export default function (props: EditorProps): ReactElement {
                 <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
             }
             <GridCell desktop={6} tablet={4} phone={2}>
-                <StyledIconButton 
-                    label='Edit' 
-                    icon={editIcon} 
-                    onClick={(e) => {
-                        if(props.taskData.completed){
-                            props.setOpen(false);
-                            // e.target.classList.remove('mdc-icon-button');
-                            e.target.style.zIndex="-1";
-                        }else{
-                            props.setOpen(true);
-                        }
-                    }}
-                    ripple={false}
-                />
+                <StyledIconButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)} ripple={false}/>
             </GridCell>
         </GridInner>
     );
