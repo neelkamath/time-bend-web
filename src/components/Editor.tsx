@@ -34,6 +34,7 @@ export default function (props: EditorProps): ReactElement {
 const StyledGridCell = styled(GridCell)`
     padding-top: 0.234em;
     padding-bottom: 0.234em;
+    display: flex;
 ` as typeof GridCell;
 
 const StyledButton = styled(Button)`
@@ -42,7 +43,5 @@ const StyledButton = styled(Button)`
     }
     border: none;
     border-radius: 50%;
-    margin-left: 0.8em;
-    margin-top: 0.25em;
     outline: none;
 ` as typeof Button;
