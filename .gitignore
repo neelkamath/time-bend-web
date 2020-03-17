@@ -1,5 +1,6 @@
 .cache/
 .idea/
+.lighthouseci/
 dist/
 node_modules/
 .DS_Store

@@ -1,3 +1,7 @@
 test:
   image: node:12
   script: npm cit
+
+lighthouse:
+  image: cypress/browsers:node12.6.0-chrome77
+  script: lhci autorun
