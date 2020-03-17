@@ -15,6 +15,7 @@ export default function (props: SubmitProps): ReactElement {
             label={props.taskData === undefined ? 'create' : 'update'}
             onClick={
                 (e: Event) => {
+                    if (props.task === undefined || props.task === '' || props.duration === undefined) return;
                     e.preventDefault();
                     storeTask(props);
                     props.onSubmit();

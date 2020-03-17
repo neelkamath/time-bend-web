@@ -13,12 +13,14 @@ export default function (props: FormProps): ReactElement {
     const [task, setTask] = useState(props.taskData?.task);
     const [duration, setDuration] = useState(props.taskData?.duration);
     return (
-        <form>
-            <TaskDataInput task={task} duration={duration} setTask={setTask} setDuration={setDuration}/>
-            <br/>
-            <Submit onSubmit={props.onSubmit} taskData={props.taskData} task={task} duration={duration}/>
+        <>
+            <form>
+                <TaskDataInput task={task} duration={duration} setTask={setTask} setDuration={setDuration}/>
+                <br/>
+                <Submit onSubmit={props.onSubmit} taskData={props.taskData} task={task} duration={duration}/>
+            </form>
             <Delete {...props}/>
-        </form>
+        </>
     );
 }
 
@@ -29,8 +31,15 @@ function Delete(props: FormProps): ReactElement {
         deleteButton = (
             <>
                 <br/>
-                <br/>
-                <CustomButton label='delete' onClick={() => deleteTask(data)}/>
+                <CustomButton
+                    label='delete'
+                    onClick={
+                        () => {
+                            deleteTask(data);
+                            props.onSubmit();
+                        }
+                    }
+                />
             </>
         );
     return deleteButton;
