@@ -20,13 +20,13 @@ export default function (props: EditorProps): ReactElement {
     
     return (
         <GridInner>
-            <GridCell desktop={6} tablet={4} phone={2}>
+            <StyledGridCell desktop={6} tablet={4} phone={2}>
                 {
                     // @ts-ignore: Property does not exist on type.
                     <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
                 }
                 <StyledIconButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)} ripple={false}/>
-            </GridCell>
+            </StyledGridCell>
         </GridInner>
     );
 }
@@ -36,3 +36,8 @@ const StyledIconButton = styled(IconButton)`
     border: none;
     outline: none;
 ` as typeof IconButton;
+
+const StyledGridCell = styled(GridCell)`
+    padding-top: 0.234em;
+    padding-bottom: 0.234em;
+`as typeof GridCell;
