@@ -3,4 +3,5 @@
 import {registerRoute} from 'workbox-routing';
 import {StaleWhileRevalidate} from 'workbox-strategies';
 
-registerRoute(/\.(html|css|js|png|svg|webmanifest)$/, new StaleWhileRevalidate());
+registerRoute('index.html', new StaleWhileRevalidate());
+registerRoute(/\.(?:html|css|js|png|svg|webmanifest)$/, new StaleWhileRevalidate());
