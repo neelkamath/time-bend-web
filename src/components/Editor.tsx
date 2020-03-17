@@ -31,5 +31,8 @@ export default function (props: EditorProps): ReactElement {
 }
 
 const StyledIconButton = styled(IconButton)`
-    margin-left: 0.375em;
+    @media only screen and (min-width: 768px) {
+        margin-left: 1.25em;
+    }
+    margin-left: 0.8em;
 ` as typeof IconButton;
