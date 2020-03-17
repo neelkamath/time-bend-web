@@ -6,9 +6,9 @@ import Status from './Status';
 import editIcon from '../../public/edit.svg';
 import {TaskProps} from './Task';
 import styled from 'styled-components';
-// @ts-ignore: Cannot find module.
-import {IconButton} from '@rmwc/icon-button';
 import {TaskData} from '../storage';
+// @ts-ignore: Cannot find module.
+import {Button} from '@rmwc/button';
 
 export interface EditorProps extends TaskProps {
     readonly taskData: TaskData
@@ -24,12 +24,18 @@ export default function (props: EditorProps): ReactElement {
                 <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
             }
             <GridCell desktop={6} tablet={4} phone={2}>
-                <StyledIconButton label='Edit' icon={editIcon} onClick={() => props.setOpen(true)}/>
+                <StyledButton onClick={() => props.setOpen(true)}>
+                    <img alt='Edit' src={editIcon}/>
+                </StyledButton>
             </GridCell>
         </GridInner>
     );
 }
 
-const StyledIconButton = styled(IconButton)`
-    margin-left: 0.375em;
-` as typeof IconButton;
+const StyledButton = styled(Button)`
+    @media only screen and (min-width: 768px) {
+        margin-left: 1.75em;
+    }
+    margin-left: 0.8em;
+    margin-top: 0.25em;
+` as typeof Button;
