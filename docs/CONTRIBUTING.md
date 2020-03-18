@@ -25,6 +25,13 @@ Follow these steps if you're forking the repo to develop the project as your own
 npm t
 ```
 
+### Auditing
+
+```
+npm run lighthouse
+```
+Runs [Lighthouse](https://developers.google.com/web/tools/lighthouse/) audits.
+
 ### Development
 
 ```

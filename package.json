@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "test": "jest && lhci autorun",
+    "test": "jest",
     "dev": "parcel public/index.html",
-    "build": "parcel build --public-url ./ public/index.html && node src/workboxBuild.ts"
+    "build": "parcel build --public-url ./ public/index.html && node src/workboxBuild.ts",
+    "lighthouse": "lhci autorun --collect.settings.chromeFlags='--no-sandbox'"
   },
   "devDependencies": {
     "@lhci/cli": "^0.3.9",
