@@ -17,7 +17,6 @@ export interface EditorProps extends TaskProps {
 
 export default function (props: EditorProps): ReactElement {
     const [checked, setChecked] = useState(props.taskData.completed);
-    
     return (
         <GridInner>
             <StyledGridCell desktop={12} tablet={8} phone={4}>
@@ -25,8 +24,14 @@ export default function (props: EditorProps): ReactElement {
                     // @ts-ignore: Property does not exist on type.
                     <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
                 }
-                <StyledButton desktop={6} tablet={4} phone={2} aria-label='Edit' icon={editIcon}
-                              onClick={() => props.setOpen(true)} ripple={false}/>
+                <StyledButton
+                    desktop={6}
+                    tablet={4}
+                    phone={2}
+                    aria-label='Edit'
+                    icon={editIcon}
+                    onClick={() => props.setOpen(true)}
+                />
             </StyledGridCell>
         </GridInner>
     );
@@ -37,5 +42,8 @@ const StyledGridCell = styled(GridCell)`
 ` as typeof GridCell;
 
 const StyledButton = styled(Button)`
+    @media only screen and (min-width: 768px) {
+        padding-right: 1.5em;
+    }
     margin-top: 0.2em;
 ` as typeof Button;
