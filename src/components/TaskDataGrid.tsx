@@ -11,7 +11,7 @@ export interface TaskDataGridProps extends TaskProps {
     readonly setOpen: (open: boolean) => void
 }
 
-export default function (props: TaskDataGridProps): ReactElement {
+export default function TaskDataGrid(props: TaskDataGridProps): ReactElement {
     return (
         // @ts-ignore: Type 'number' is not assignable to type 'boolean'.
         <TaskGrid completed={props.taskData.completed ? 1 : 0}>
@@ -19,7 +19,7 @@ export default function (props: TaskDataGridProps): ReactElement {
                 <Editor setOpen={props.setOpen} {...props}/>
             </GridCell>
             <StyledTaskGridCell desktop={10} tablet={6} phone={2}>
-                {props.taskData.task}
+                {props.taskData.action}
             </StyledTaskGridCell>
             {
                 // @ts-ignore: Property does not exist on type.

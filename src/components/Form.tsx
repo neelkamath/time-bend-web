@@ -9,15 +9,15 @@ export interface FormProps {
     readonly onSubmit: () => void
 }
 
-export default function (props: FormProps): ReactElement {
-    const [task, setTask] = useState(props.taskData?.task);
+export default function Form(props: FormProps): ReactElement {
+    const [action, setAction] = useState(props.taskData?.action);
     const [duration, setDuration] = useState(props.taskData?.duration);
     return (
         <>
             <form>
-                <TaskDataInput task={task} duration={duration} setTask={setTask} setDuration={setDuration}/>
+                <TaskDataInput action={action} duration={duration} setAction={setAction} setDuration={setDuration}/>
                 <br/>
-                <Submit onSubmit={props.onSubmit} taskData={props.taskData} task={task} duration={duration}/>
+                <Submit onSubmit={props.onSubmit} taskData={props.taskData} task={action} duration={duration}/>
             </form>
             <Delete {...props}/>
         </>

@@ -11,7 +11,7 @@ export interface TaskClearerProps {
     readonly onClear: OnUpdate
 }
 
-export default function (props: TaskClearerProps): ReactElement {
+export default function TaskClearer(props: TaskClearerProps): ReactElement {
     return (
         <>
             <CustomDialog title='Delete all tasks?' open={props.open} setOpen={props.setOpen}>

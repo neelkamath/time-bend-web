@@ -9,7 +9,7 @@ export interface CustomDialogProps {
     readonly children: React.ReactNode
 }
 
-export default function (props: CustomDialogProps): ReactElement {
+export default function CustomDialog(props: CustomDialogProps): ReactElement {
     return (
         <SimpleDialog
             title={props.title}

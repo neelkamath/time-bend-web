@@ -6,16 +6,14 @@ import Status from './Status';
 import editIcon from '../../public/edit.svg';
 import {TaskProps} from './Task';
 import styled from 'styled-components';
-import {TaskData} from '../storage';
 // @ts-ignore: Cannot find module.
 import {Button} from '@rmwc/button';
 
 export interface EditorProps extends TaskProps {
-    readonly taskData: TaskData
     readonly setOpen: (open: boolean) => void
 }
 
-export default function (props: EditorProps): ReactElement {
+export default function Editor(props: EditorProps): ReactElement {
     const [checked, setChecked] = useState(props.taskData.completed);
     return (
         <GridInner>

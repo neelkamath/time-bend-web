@@ -1,6 +1,6 @@
 import {default as React, ReactElement} from 'react';
 
-export default function (): ReactElement {
+export default function Explanation(): ReactElement {
     return (
         <>
             <p>
@@ -12,7 +12,7 @@ export default function (): ReactElement {
             <p>
                 Read Chetan Surpur's{' '}
                 <a href='http://chetansurpur.com/blog/2012/10/time-bending.html'>short article</a> for
-                instructions.
+                instructions. You can drag and drop tasks to reorder them.
             </p>
             <p>
                 You can also use the{' '}

@@ -10,7 +10,7 @@ export interface TaskProps {
     readonly onUpdate: OnUpdate
 }
 
-export default function (props: TaskProps): ReactElement {
+export default function Task(props: TaskProps): ReactElement {
     const [open, setOpen] = useState(false);
     return (
         <>

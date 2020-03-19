@@ -9,7 +9,7 @@ export interface SubmitProps extends FormProps {
     readonly onSubmit: () => void
 }
 
-export default function (props: SubmitProps): ReactElement {
+export default function Submit(props: SubmitProps): ReactElement {
     return (
         <CustomButton
             label={props.taskData === undefined ? 'create' : 'update'}
@@ -28,7 +28,7 @@ export default function (props: SubmitProps): ReactElement {
 function storeTask(props: SubmitProps): void {
     if (props.task === undefined || props.duration === undefined) return;
     if (props.taskData === undefined)
-        saveTask({task: props.task, duration: props.duration, completed: false, created: Date.now()});
+        saveTask({action: props.task, duration: props.duration, completed: false});
     else
-        updateTask({...props.taskData, task: props.task, duration: props.duration});
+        updateTask({...props.taskData, action: props.task, duration: props.duration});
 }
