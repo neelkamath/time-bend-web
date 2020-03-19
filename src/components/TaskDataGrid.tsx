@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React, {Dispatch, ReactElement, SetStateAction} from 'react';
 // @ts-ignore: Cannot find module.
 import {Grid, GridCell} from '@rmwc/grid';
 import Editor from './Editor';
@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import {TaskGridCell} from './TaskGridCell';
 
 export interface TaskDataGridProps extends TaskProps {
-    readonly setOpen: (open: boolean) => void
+    readonly setOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export default function TaskDataGrid(props: TaskDataGridProps): ReactElement {

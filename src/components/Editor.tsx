@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react';
+import React, {Dispatch, ReactElement, SetStateAction, useState} from 'react';
 // @ts-ignore: Cannot find module.
 import {GridCell, GridInner} from '@rmwc/grid';
 import Status from './Status';
@@ -10,38 +10,30 @@ import styled from 'styled-components';
 import {Button} from '@rmwc/button';
 
 export interface EditorProps extends TaskProps {
-    readonly setOpen: (open: boolean) => void
+    readonly setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function Editor(props: EditorProps): ReactElement {
+export default function (props: EditorProps): ReactElement {
     const [checked, setChecked] = useState(props.taskData.completed);
     return (
         <GridInner>
-            <StyledGridCell desktop={12} tablet={8} phone={4}>
-                {
-                    // @ts-ignore: Property does not exist on type.
-                    <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
-                }
-                <StyledButton
-                    desktop={6}
-                    tablet={4}
-                    phone={2}
-                    aria-label='Edit'
-                    icon={editIcon}
-                    onClick={() => props.setOpen(true)}
-                />
-            </StyledGridCell>
+            {
+                // @ts-ignore: Property does not exist on type.
+                <Status desktop={6} tablet={4} phone={2} {...{checked, setChecked, ...props}}/>
+            }
+            <GridCell desktop={6} tablet={4} phone={2}>
+                <StyledButton onClick={() => props.setOpen(true)}>
+                    <img alt='Edit' src={editIcon}/>
+                </StyledButton>
+            </GridCell>
         </GridInner>
     );
 }
 
-const StyledGridCell = styled(GridCell)`
-    display: flex;
-` as typeof GridCell;
-
 const StyledButton = styled(Button)`
     @media only screen and (min-width: 768px) {
-        padding-right: 1.5em;
+        margin-left: 1.75em;
     }
-    margin-top: 0.2em;
+    margin-left: 0.8em;
+    margin-top: 0.25em;
 ` as typeof Button;
