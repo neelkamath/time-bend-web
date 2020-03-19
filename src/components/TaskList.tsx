@@ -2,7 +2,7 @@ import React, {ReactElement} from 'react';
 import TaskCreator from './TaskCreator';
 import {TaskData} from '../storage';
 import {OnUpdate} from './App';
-import DraggableTask from './DraggableTask';
+import DroppableTask from './DroppableTask';
 
 export interface TaskListProps {
     tasks: TaskData[]
@@ -22,5 +22,7 @@ export default function TaskList(props: TaskListProps): ReactElement {
 function createTasks(tasks: TaskData[], onUpdate: OnUpdate, completed: boolean): ReactElement[] {
     return tasks
         .filter((value: TaskData) => value.completed === completed)
-        .map((value: TaskData, index: number) => <DraggableTask task={value} onUpdate={onUpdate} index={index}/>);
+        .map((value: TaskData, index: number) => {
+            return <DroppableTask key={value.created} task={value} onUpdate={onUpdate} index={index}/>
+        });
 }

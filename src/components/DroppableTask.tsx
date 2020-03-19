@@ -13,7 +13,7 @@ export interface DroppableTaskProps {
 
 export default function DroppableTask(props: DroppableTaskProps): ReactElement {
     return (
-        <Droppable key={props.task.created} droppableId={props.task.created.toString()}>
+        <Droppable droppableId={props.task.created.toString()}>
             {
                 (droppableProvided) => (
                     <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps}>
