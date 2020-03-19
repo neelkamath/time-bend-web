@@ -69,24 +69,23 @@ function getTime(key: string): number {
     return parseInt(time === null ? '0' : time);
 }
 
-export interface TaskData {
-    readonly task: string
+export interface ActionData {
+    /** The action to be performed (e.g., `"Workout"`). */
+    readonly action: string
     /** An integer in the range of 1 and 60 which denotes the number of minutes the taskData is planned for. */
     readonly duration: number
     readonly completed: boolean
-    /** The time (`Date.now()`) at which this taskData was created (unique to every taskData). */
+}
+
+export interface TaskData extends ActionData {
+    /** The time (`Date.now()`) at which this task was created (unique to every `TaskData`). */
     readonly created: number
 }
 
-export function saveTask(task: TaskData): void {
-    if (taskExists(task)) throw 'Task already exists';
+export function saveTask(data: ActionData): void {
     const tasks = getTasks();
-    tasks.push(task);
+    tasks.push({...data, created: Date.now()});
     saveTasks(tasks);
-}
-
-export function taskExists(task: TaskData): boolean {
-    return getTasks().filter((value: TaskData) => value.created === task.created).length !== 0;
 }
 
 /** Overwrites the tasks with the supplied value. */
@@ -96,18 +95,19 @@ export function saveTasks(tasks: TaskData[]): void {
 
 export function updateTask(task: TaskData): void {
     const tasks = getTasks();
-    const filteredTasks = tasks.filter((value: TaskData) => value.created === task.created);
-    switch (filteredTasks.length) {
-        case 0:
-            throw "The taskData doesn't exist.";
-        case 1:
-            const index = tasks.indexOf(filteredTasks[0]);
-            tasks[index] = task;
-            break;
-        default:
-            throw 'The tasks have been corrupted since there is more than one taskData with the same timestamp.';
-    }
+    const index = tasks.findIndex((value: TaskData) => value.created === task.created);
+    tasks[index] = task;
     saveTasks(tasks);
+}
+
+/** Swaps the indices of the tasks at `index1` and `index2`. */
+export function swapTasks(index1: number, index2: number): void {
+    const tasks = getTasks();
+    const task1 = tasks[index1];
+    tasks[index1] = tasks[index2];
+    tasks[index2] = task1;
+    // One of the values will be `undefined` if a task was moved to the end of the list.
+    saveTasks(tasks.filter((value: TaskData) => value !== undefined));
 }
 
 export function getTasks(): TaskData[] {
@@ -116,7 +116,6 @@ export function getTasks(): TaskData[] {
 }
 
 export function deleteTask(task: TaskData): void {
-    if (!taskExists(task)) throw "Task doesn't exist";
     saveTasks(getTasks().filter((value: TaskData) => value.created !== task.created));
 }
 

@@ -6,16 +6,16 @@ import styled from 'styled-components';
 import {TextField} from '@rmwc/textfield';
 
 export interface TaskDataInputProps {
-    readonly setTask: Dispatch<SetStateAction<string | undefined>>
+    readonly setAction: Dispatch<SetStateAction<string | undefined>>
     readonly setDuration: Dispatch<SetStateAction<number | undefined>>
-    readonly task?: string
+    readonly action?: string
     readonly duration?: number
 }
 
-export default function (props: TaskDataInputProps): ReactElement {
+export default function TaskDataInput(props: TaskDataInputProps): ReactElement {
     return (
         <ThemeProvider options={{primary: '#AFAFAF'}}>
-            <TaskInput task={props.task} setTask={props.setTask}/>
+            <TaskInput action={props.action} setAction={props.setAction}/>
             <br/>
             <br/>
             <DurationInput duration={props.duration} setDuration={props.setDuration}/>
@@ -24,18 +24,18 @@ export default function (props: TaskDataInputProps): ReactElement {
 }
 
 interface TaskInputProps {
-    readonly task?: string
-    readonly setTask: Dispatch<SetStateAction<string | undefined>>
+    readonly action?: string
+    readonly setAction: Dispatch<SetStateAction<string | undefined>>
 }
 
 function TaskInput(props: TaskInputProps): ReactElement {
     return (
         <StyledTextField
             placeholder='Task'
-            value={props.task === undefined ? '' : props.task}
+            value={props.action === undefined ? '' : props.action}
             outlined
             required
-            onChange={(e: ChangeEvent<HTMLInputElement>) => props.setTask(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => props.setAction(e.target.value)}
         />
     );
 }

@@ -41,9 +41,13 @@ Saves the production build to `dist/`.
 
 ### Support
 
-We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, tablets, and phones which are at least 375 pixels in width (i.e., phones bigger than the iPhone SE).
+We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, tablets, and phones.
 
 ### [Storage](storage.md)
+
+### Style Guide
+
+Files exporting `ReactElement`s should use `export default` to export them. You should name the function so that it's easier to debug.
 
 ### Styles
 

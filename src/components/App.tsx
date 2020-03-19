@@ -12,40 +12,31 @@ import '@material/line-ripple/dist/mdc.line-ripple.css';
 import '@material/theme/dist/mdc.theme.css';
 import '@material/checkbox/dist/mdc.checkbox.css';
 import '@material/layout-grid/dist/mdc.layout-grid.css';
-// @ts-ignore: Cannot find module.
-import {Grid, GridCell} from '@rmwc/grid';
-// @ts-ignore: Cannot find module.
-import TaskClearer from './TaskClearer';
-import styled from 'styled-components';
-import {getTasks} from '../storage';
-import Instructions from './Instructions';
+import {getTasks, swapTasks} from '../storage';
+import UtilityBar from './UtilityBar';
+import {DragDropContext, DropResult} from 'react-beautiful-dnd';
 
 export interface OnUpdate {
     (): void
 }
 
-export default function (): ReactElement {
+export default function App(): ReactElement {
     const [tasks, setTasks] = useState(getTasks());
     const onUpdate = () => setTasks(getTasks());
-    const [clearerOpen, clearerSetOpen] = useState(false);
-    const [aboutOpen, aboutSetOpen] = useState(false);
     return (
         <>
             <TimeBar/>
-            <StyledGrid>
-                <GridCell desktop={2} tablet={2} phone={2}>
-                    <Instructions open={aboutOpen} setOpen={aboutSetOpen}/>
-                </GridCell>
-                <GridCell desktop={9} tablet={5} phone={1}/>
-                <GridCell desktop={1} tablet={1} phone={1}>
-                    <TaskClearer onClear={onUpdate} open={clearerOpen} setOpen={clearerSetOpen}/>
-                </GridCell>
-            </StyledGrid>
-            <TaskList onUpdate={onUpdate} tasks={tasks}/>
+            <UtilityBar onTasksCleared={onUpdate}/>
+            <DragDropContext onDragEnd={(result: DropResult) => updateIndices(result, onUpdate)}>
+                <TaskList onUpdate={onUpdate} tasks={tasks}/>
+            </DragDropContext>
         </>
     );
 }
 
-const StyledGrid = styled(Grid)`
-    padding: 0;
-` as typeof Grid;
+function updateIndices(result: DropResult, onUpdate: OnUpdate): void {
+    if (result.destination !== null) {
+        swapTasks(result.source.index, result.destination!.index);
+        onUpdate();
+    }
+}

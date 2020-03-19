@@ -9,7 +9,7 @@ export interface TaskCreatorProps {
     onUpdate: OnUpdate
 }
 
-export default function (props: TaskCreatorProps): ReactElement {
+export default function TaskCreator(props: TaskCreatorProps): ReactElement {
     const [open, setOpen] = useState(false);
     return (
         <>
