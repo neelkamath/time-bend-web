@@ -36,4 +36,5 @@ export default function Status(props: StatusProps): ReactElement {
 
 const StyledCheckbox = styled(Checkbox)`
     margin: auto;
+    margin-left: 0.52em;
 ` as unknown as typeof Checkbox;

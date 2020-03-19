@@ -3,5 +3,6 @@ import styled from 'styled-components';
 import {GridCell} from '@rmwc/grid';
 
 export const TaskGridCell = styled(GridCell)`
-    padding: 0.66em;
+    padding-top: 0.66em;
+    padding-bottom: 0.66em;
 ` as typeof GridCell;

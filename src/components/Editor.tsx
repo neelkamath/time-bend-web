@@ -43,5 +43,7 @@ const StyledButton = styled(Button)`
     @media only screen and (min-width: 768px) {
         padding-right: 1.5em;
     }
+    position: absolute;
+    left: 2.35rem;
     margin-top: 0.2em;
 ` as typeof Button;

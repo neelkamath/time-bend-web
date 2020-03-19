@@ -14,8 +14,9 @@ export interface TaskClearerProps {
 export default function TaskClearer(props: TaskClearerProps): ReactElement {
     return (
         <>
-            <CustomDialog title='Delete all tasks?' open={props.open} setOpen={props.setOpen}>
-                <CustomButton label='delete' onClick={() => clear(props.setOpen, props.onClear)}/>
+            <CustomDialog title='Delete tasks?' open={props.open} setOpen={props.setOpen}>
+                <CustomButton label='All' onClick={() => clear(props.setOpen, props.onClear)}/>
+                <CustomButton label='Finished only' onClick={() => clear(props.setOpen, props.onClear)}/>
             </CustomDialog>
             <CustomButton label='clear' onClick={() => props.setOpen(true)}/>
         </>
