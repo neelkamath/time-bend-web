@@ -14,8 +14,8 @@ export interface TaskDataGridProps extends TaskProps {
 export default function (props: TaskDataGridProps): ReactElement {
     return (
         // @ts-ignore: Type 'number' is not assignable to type 'boolean'.
-        <TaskGrid completed={props.taskData.completed ? 1 : 0}>
-            <GridCell desktop={2} tablet={1} phone={1} align={"middle"}>
+        <StyledGrid completed={props.taskData.completed ? 1 : 0}>
+            <GridCell desktop={2} tablet={1} phone={1} align='middle'>
                 <Editor setOpen={props.setOpen} {...props}/>
             </GridCell>
             <StyledTaskGridCell desktop={9} tablet={6} phone={2}>
@@ -25,7 +25,7 @@ export default function (props: TaskDataGridProps): ReactElement {
                 // @ts-ignore: Property does not exist on type.
                 <Duration duration={props.taskData.duration} desktop={1} tablet={1} phone={1}/>
             }
-        </TaskGrid>
+        </StyledGrid>
     );
 }
 
@@ -33,7 +33,7 @@ interface TaskGridProps {
     readonly completed: boolean
 }
 
-const TaskGrid = styled(Grid)<TaskGridProps>`
+const StyledGrid = styled(Grid)<TaskGridProps>`
     background-color: ${(props) => props.completed ? '#EEEEEE' : 'initial'};
     border-bottom: 0.05em solid #E3E3E3;
     color: ${(props) => props.completed ? '#A4A4A4' : 'initial'};
