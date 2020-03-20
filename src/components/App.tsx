@@ -12,7 +12,7 @@ import '@material/line-ripple/dist/mdc.line-ripple.css';
 import '@material/theme/dist/mdc.theme.css';
 import '@material/checkbox/dist/mdc.checkbox.css';
 import '@material/layout-grid/dist/mdc.layout-grid.css';
-import {getTasks, swapTasks} from '../storage';
+import {getTasks, shiftTasks} from '../storage';
 import UtilityBar from './UtilityBar';
 import {DragDropContext, DropResult} from 'react-beautiful-dnd';
 
@@ -36,7 +36,7 @@ export default function App(): ReactElement {
 
 function updateIndices(result: DropResult, onUpdate: OnUpdate): void {
     if (result.destination !== null) {
-        swapTasks(result.source.index, result.destination!.index);
+        shiftTasks(result.source.index, result.destination!.index);
         onUpdate();
     }
 }

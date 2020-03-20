@@ -100,13 +100,12 @@ export function updateTask(task: TaskData): void {
     saveTasks(tasks);
 }
 
-/** Swaps the indices of the tasks at `index1` and `index2`. */
-export function swapTasks(index1: number, index2: number): void {
+/** Shifts the task at the `fromIndex` to the `toIndex`. */
+export function shiftTasks(fromIndex: number, toIndex: number): void {
     const tasks = getTasks();
-    const task1 = tasks[index1];
-    tasks[index1] = tasks[index2];
-    tasks[index2] = task1;
-    // One of the values will be `undefined` if a task was moved to the end of the list.
+    const task = tasks[fromIndex];
+    delete tasks[fromIndex];
+    tasks.splice(toIndex, 0, task);
     saveTasks(tasks.filter((value: TaskData) => value !== undefined));
 }
 
