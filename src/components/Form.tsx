@@ -17,7 +17,7 @@ export default function Form(props: FormProps): ReactElement {
             <form>
                 <TaskDataInput action={action} duration={duration} setAction={setAction} setDuration={setDuration}/>
                 <br/>
-                <Submit onSubmit={props.onSubmit} taskData={props.taskData} task={action} duration={duration}/>
+                <Submit onSubmit={props.onSubmit} taskData={props.taskData} action={action} duration={duration}/>
             </form>
             <Delete {...props}/>
         </>
