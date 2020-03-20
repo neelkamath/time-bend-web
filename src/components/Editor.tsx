@@ -14,7 +14,7 @@ export interface EditorProps extends TaskProps {
 }
 
 export default function (props: EditorProps): ReactElement {
-    const [checked, setChecked] = useState(props.taskData.completed);
+    const [checked, setChecked] = useState(props.taskData.isComplete);
     return (
         <GridInner>
             {

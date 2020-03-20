@@ -74,40 +74,52 @@ export interface ActionData {
     readonly action: string
     /** An integer in the range of 1 and 60 which denotes the number of minutes the taskData is planned for. */
     readonly duration: number
-    readonly completed: boolean
 }
 
 export interface TaskData extends ActionData {
+    readonly isComplete: boolean
     /** The time (`Date.now()`) at which this task was created (unique to every `TaskData`). */
     readonly created: number
 }
 
-export function saveTask(data: ActionData): void {
+export function createTask(data: ActionData): void {
     const tasks = getTasks();
-    tasks.push({...data, created: Date.now()});
+    tasks.push({...data, isComplete: false, created: Date.now()});
     saveTasks(tasks);
 }
 
-/** Overwrites the tasks with the supplied value. */
+/** Overwrites the tasks with the supplied value after removing `undefined` elements. */
 export function saveTasks(tasks: TaskData[]): void {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks.filter((value: TaskData) => value !== undefined)));
 }
 
 export function updateTask(task: TaskData): void {
     const tasks = getTasks();
     const index = tasks.findIndex((value: TaskData) => value.created === task.created);
     tasks[index] = task;
+    if (task.isComplete) {
+        tasks.push(task);
+        delete tasks[index];
+    }
     saveTasks(tasks);
 }
 
-/** Swaps the indices of the tasks at `index1` and `index2`. */
-export function swapTasks(index1: number, index2: number): void {
+/**
+ * Shifts the task at the `fromIndex` to the `toIndex`. If `isCompleted` is `true`, then the task will be shifted with
+ * the offset of the first completed task. This means that if you are shifting the first completed task, then
+ * `fromIndex` should be `0` even if there are incomplete tasks before it.
+ */
+export function shiftTasks(isCompleted: boolean, fromIndex: number, toIndex: number): void {
     const tasks = getTasks();
-    const task1 = tasks[index1];
-    tasks[index1] = tasks[index2];
-    tasks[index2] = task1;
-    // One of the values will be `undefined` if a task was moved to the end of the list.
-    saveTasks(tasks.filter((value: TaskData) => value !== undefined));
+    if (isCompleted) {
+        const offset = tasks.findIndex((value: TaskData) => value.isComplete);
+        fromIndex += offset;
+        toIndex += offset;
+    }
+    const task = tasks[fromIndex];
+    delete tasks[fromIndex];
+    tasks.splice(toIndex, 0, task);
+    saveTasks(tasks);
 }
 
 export function getTasks(): TaskData[] {

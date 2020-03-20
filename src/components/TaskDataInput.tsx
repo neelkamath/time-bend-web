@@ -15,7 +15,7 @@ export interface TaskDataInputProps {
 export default function TaskDataInput(props: TaskDataInputProps): ReactElement {
     return (
         <ThemeProvider options={{primary: '#AFAFAF'}}>
-            <TaskInput action={props.action} setAction={props.setAction}/>
+            <ActionInput action={props.action} setAction={props.setAction}/>
             <br/>
             <br/>
             <DurationInput duration={props.duration} setDuration={props.setDuration}/>
@@ -23,15 +23,15 @@ export default function TaskDataInput(props: TaskDataInputProps): ReactElement {
     );
 }
 
-interface TaskInputProps {
+interface ActionInputProps {
     readonly action?: string
     readonly setAction: Dispatch<SetStateAction<string | undefined>>
 }
 
-function TaskInput(props: TaskInputProps): ReactElement {
+function ActionInput(props: ActionInputProps): ReactElement {
     return (
         <StyledTextField
-            placeholder='Task'
+            placeholder='Action'
             value={props.action === undefined ? '' : props.action}
             outlined
             required
