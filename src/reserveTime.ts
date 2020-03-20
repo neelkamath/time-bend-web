@@ -16,7 +16,7 @@ export default function getReserveTime(): Time {
 function getReserveMinutes(): number {
     const minutes = getMinutesFromNow();
     const duration = getTasks()
-        .filter((value: TaskData) => !value.completed)
+        .filter((value: TaskData) => !value.isComplete)
         .reduce((previous: number, current: TaskData) => previous + current.duration, 0);
     return minutes - duration;
 }

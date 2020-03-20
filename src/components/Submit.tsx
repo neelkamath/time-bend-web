@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import CustomButton from './CustomButton';
-import {saveTask, updateTask} from '../storage';
+import {createTask, updateTask} from '../storage';
 import {FormProps} from './Form';
 
 export interface SubmitProps extends FormProps {
@@ -32,7 +32,7 @@ function isInvalid(action?: string, duration?: number): boolean {
 function storeTask(props: SubmitProps): void {
     if (props.action === undefined || props.duration === undefined) return;
     if (props.taskData === undefined)
-        saveTask({action: props.action, duration: props.duration, completed: false});
+        createTask({action: props.action, duration: props.duration});
     else
         updateTask({...props.taskData, action: props.action, duration: props.duration});
 }

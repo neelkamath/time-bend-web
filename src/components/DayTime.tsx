@@ -89,5 +89,5 @@ const Span = styled.span`
     }
     color: ${dayTimeColor};
     font-weight: bold;
-    padding-right: 0.9em;
+    padding-right: 1em;
 `;

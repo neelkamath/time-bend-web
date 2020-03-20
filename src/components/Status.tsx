@@ -26,7 +26,7 @@ export default function Status(props: StatusProps): ReactElement {
                 (e: ChangeEvent<HTMLInputElement>) => {
                     const checked = e.target.checked;
                     props.setChecked(checked);
-                    updateTask({...props.taskData, completed: checked});
+                    updateTask({...props.taskData, isComplete: checked});
                     props.onUpdate();
                 }
             }

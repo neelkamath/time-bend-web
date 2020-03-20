@@ -36,7 +36,7 @@ export default function App(): ReactElement {
 
 function updateIndices(result: DropResult, onUpdate: OnUpdate): void {
     if (result.destination !== null) {
-        shiftTasks(result.source.index, result.destination!.index);
+        shiftTasks(result.type === 'CompletedTask', result.source.index, result.destination!.index);
         onUpdate();
     }
 }

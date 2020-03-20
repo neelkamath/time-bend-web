@@ -22,23 +22,23 @@ The key `tasks` stores the user's tasks as shown in the following example.
     {
         "task": "Finish 2 pages of report", 
         "duration": 15,
-        "completed": true,
+        "isComplete": false,
         "created": 1584600271313
     }, 
     {
         "task": "Cook dinner", 
         "duration": 40,
-        "completed": false,
+        "isComplete": true,
         "created": 1584600275482
     }
 ]
 ```
 
-The index of the task is representative of its position in the UI. The following table explains the key-value pairs of each task object.
+The index of the task is representative of its position in the UI. Completed tasks are placed at the end of the array. The following table explains the key-value pairs of each task object.
 
 |Key|Explanation|
 |---|---|
 |`task`|The action to be performed.|
 |`duration`|Integer in the range of 1 and 60.|
-|`completed`|Whether the task has been completed.|
+|`isComplete`|Whether the task has been completed.|
 |`created`|The time at which this task was created. It is created using `Date.now()`, and is unique to every task.|

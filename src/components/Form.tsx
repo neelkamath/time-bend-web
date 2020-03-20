@@ -12,12 +12,17 @@ export interface FormProps {
 export default function Form(props: FormProps): ReactElement {
     const [action, setAction] = useState(props.taskData?.action);
     const [duration, setDuration] = useState(props.taskData?.duration);
+    const onSubmit = () => {
+        setAction(undefined);
+        setDuration(undefined);
+        props.onSubmit();
+    };
     return (
         <>
             <form>
                 <TaskDataInput action={action} duration={duration} setAction={setAction} setDuration={setDuration}/>
                 <br/>
-                <Submit onSubmit={props.onSubmit} taskData={props.taskData} action={action} duration={duration}/>
+                <Submit onSubmit={onSubmit} taskData={props.taskData} action={action} duration={duration}/>
             </form>
             <Delete {...props}/>
         </>

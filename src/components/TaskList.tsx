@@ -19,9 +19,9 @@ export default function TaskList(props: TaskListProps): ReactElement {
     );
 }
 
-function createTasks(tasks: TaskData[], onUpdate: OnUpdate, completed: boolean): ReactElement[] {
+function createTasks(tasks: TaskData[], onUpdate: OnUpdate, isComplete: boolean): ReactElement[] {
     return tasks
-        .filter((value: TaskData) => value.completed === completed)
+        .filter((value: TaskData) => value.isComplete === isComplete)
         .map((value: TaskData, index: number) => {
             return <DroppableTask key={value.created} task={value} onUpdate={onUpdate} index={index}/>
         });
