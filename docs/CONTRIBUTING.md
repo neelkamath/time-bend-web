@@ -2,11 +2,7 @@
 
 ## Forking
 
-Follow these steps if you're forking the repo to develop the project as your own instead of just to send back a PR.
-- Set up the CI/CD pipeline.
-    1. Create a [GitLab](https://gitlab.com/users/sign_in#register-pane) account.
-    1. [Connect](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/github_integration.html) the GitHub repo to a GitLab repo.
-- Deploy the site to [Netlify](https://www.netlify.com/).
+If you're forking the repo to develop the project as your own instead of just to send back a PR, you can deploy the site to [Netlify](https://www.netlify.com/) (there is already a [`netlify.toml`](../netlify.toml) written).
 
 ## Installation
 
@@ -45,13 +41,8 @@ We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, 
 
 ### [Storage](storage.md)
 
-### Style Guide
-
-Files exporting `ReactElement`s should use `export default` to export them. You should name the function so that it's easier to debug.
-
 ### Styles
 
-- We use [rmwc](https://rmwc.io/) for UI components. 
 - Use the [`CustomButton`](../src/components/CustomButton.tsx) instead of rmwc's [`Button`](https://rmwc.io/buttons) directly.
 - Use the [`CustomDialog`](../src/components/CustomDialog.tsx) instead of rmwc's [Dialogs](https://rmwc.io/dialogs).
 - Keep rmwc's style imports (e.g., `import '@material/button/dist/mdc.button.css';`) in [App.tsx](../src/components/App.tsx) so that is' easier to refactor components into different files.
@@ -63,10 +54,6 @@ The [service worker](../public/sw.ts) supports offline Google Analytics. There i
 ### PWA
 
 You can ignore any Workbox and service worker related errors while using the development server. To test the service worker, use a production build, preferably one deployed with Netlify.
-
-### Regenerator Runtime
-
-Parcel leaks an implementation detail for certain uses of `async`/`await` (see [this issue](https://github.com/parcel-bundler/parcel/issues/1762#issuecomment-504389468)). As a workaround, the statement `import 'regenerator-runtime/runtime';` is included in certain files.
 
 ## Branding
 
