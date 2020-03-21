@@ -45,6 +45,7 @@ We support the latest version of Chrome, Firefox, Safari, and Edge on desktops, 
 
 - Use the [`CustomButton`](../src/components/CustomButton.tsx) instead of rmwc's [`Button`](https://rmwc.io/buttons) directly.
 - Use the [`CustomDialog`](../src/components/CustomDialog.tsx) instead of rmwc's [Dialogs](https://rmwc.io/dialogs).
+- Use the [`CustomTextField`](../src/components/CustomTextField.tsx) instead of rmwc's [`TextField`](https://rmwc.io/text-fields).
 - Keep rmwc's style imports (e.g., `import '@material/button/dist/mdc.button.css';`) in [App.tsx](../src/components/App.tsx) so that is' easier to refactor components into different files.
 
 ### Analytics
