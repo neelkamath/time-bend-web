@@ -15,6 +15,7 @@ export default function TaskCreator(props: TaskCreatorProps): ReactElement {
         <>
             <CustomDialog open={open} setOpen={setOpen}>
                 <Form
+                    isNewTask
                     onSubmit={
                         () => {
                             setOpen(false);

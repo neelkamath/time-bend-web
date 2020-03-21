@@ -4,17 +4,23 @@ import TaskDataInput from './TaskDataInput';
 import React, {ReactElement, useState} from 'react';
 import CustomButton from './CustomButton';
 
-export interface FormProps {
+export interface TaskSubmissionProps {
     readonly taskData?: TaskData
     readonly onSubmit: () => void
+}
+
+export interface FormProps extends TaskSubmissionProps {
+    readonly isNewTask?: boolean
 }
 
 export default function Form(props: FormProps): ReactElement {
     const [action, setAction] = useState(props.taskData?.action);
     const [duration, setDuration] = useState(props.taskData?.duration);
     const onSubmit = () => {
-        setAction(undefined);
-        setDuration(undefined);
+        if (props.isNewTask) {
+            setAction(undefined);
+            setDuration(undefined);
+        }
         props.onSubmit();
     };
     return (
@@ -29,7 +35,7 @@ export default function Form(props: FormProps): ReactElement {
     );
 }
 
-function Delete(props: FormProps): ReactElement {
+function Delete(props: TaskSubmissionProps): ReactElement {
     let deleteButton = <></>;
     const data = props.taskData;
     if (data !== undefined)
