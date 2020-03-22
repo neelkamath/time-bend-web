@@ -69,7 +69,6 @@ const Input = styled.input`
     color: ${dayTimeColor};
     font-size: 1.1em;
     font-weight: bold;
-    outline: none;
     padding-top: 0.2em;
     white-space: nowrap;
 `;
