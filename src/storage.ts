@@ -130,6 +130,10 @@ export function deleteTask(task: TaskData): void {
     saveTasks(getTasks().filter((value: TaskData) => value.created !== task.created));
 }
 
-export function deleteTasks(): void {
+export function deleteCompletedTasks(): void {
+    saveTasks(getTasks().filter((value: TaskData) => !value.isComplete));
+}
+
+export function deleteAllTasks(): void {
     saveTasks([]);
 }

@@ -11,18 +11,14 @@ export interface TaskCreatorProps {
 
 export default function TaskCreator(props: TaskCreatorProps): ReactElement {
     const [open, setOpen] = useState(false);
+    const onSubmit = () => {
+        setOpen(false);
+        props.onUpdate();
+    };
     return (
         <>
             <CustomDialog open={open} setOpen={setOpen}>
-                <Form
-                    isNewTask
-                    onSubmit={
-                        () => {
-                            setOpen(false);
-                            props.onUpdate();
-                        }
-                    }
-                />
+                <Form isNewTask onSubmit={onSubmit}/>
             </CustomDialog>
             <CustomButton label='↓ new task' onClick={() => setOpen(true)}/>
         </>
