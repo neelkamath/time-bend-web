@@ -84,7 +84,10 @@ export interface TaskData extends ActionData {
 
 export function createTask(data: ActionData): void {
     const newTask = {...data, isComplete: false, created: Date.now()};
-    saveTasks([newTask, ...getTasks()]);
+    const tasks = getTasks();
+    const incompleteTasks = tasks.filter((value: TaskData) => !value.isComplete);
+    const completedTasks = tasks.filter((value: TaskData) => value.isComplete);
+    saveTasks([...incompleteTasks, newTask, ...completedTasks]);
 }
 
 /** Overwrites the tasks with the supplied value after removing `undefined` elements. */
