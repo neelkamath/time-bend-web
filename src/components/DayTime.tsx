@@ -17,13 +17,13 @@ export default function DayTime(props: DayTimeProps): ReactElement {
     const [dayTime, setDayTime] = useState(getTimeOfDay(props.isStart));
     return (
         <StyledFormField>
-            <label style={{textAlign: 'left'}}>
+            <Label>
                 <TimeInput dayTime={dayTime} setDayTime={setDayTime} {...props}/>
                 <br/>
                 <Span>
                     day {props.isStart ? 'start' : 'end'}
                 </Span>
-            </label>
+            </Label>
         </StyledFormField>
     );
 }
@@ -86,9 +86,9 @@ const Span = styled.span`
     color: ${dayTimeColor};
     font-weight: bold;
     text-align: left;
-    padding-left: 4%;
+    padding-left: 3%;
 `;
-// padding-right: 1em;
-// @media only screen and (min-width: 768px) {
-//     padding-right: 2.5em;
-// }
+
+const Label= styled.label`
+    text-align: left;
+`;
