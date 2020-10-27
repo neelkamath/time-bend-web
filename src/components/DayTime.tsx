@@ -89,6 +89,6 @@ const Span = styled.span`
     padding-left: 3%;
 `;
 
-const Label= styled.label`
+const Label = styled.label`
     text-align: left;
 `;
